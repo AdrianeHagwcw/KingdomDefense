@@ -11,3 +11,5 @@ position = Vector2(-174, -72)
 position = Vector2(754, 398.00003)
 scale = Vector2(0.9206539, 0.5155503)
 texture = ExtResource("1_ig7tw")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=684545117]
