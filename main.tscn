@@ -1,17 +1,71 @@
 [gd_scene format=3 uid="uid://bnit81bg4742r"]
 
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://bj6nuu08htpji" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://feugrd3blymr" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 1.png" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://be5l8vb4jywm1" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 2.png" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://diwyysfdutm0v" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 3.png" id="5_7mycd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
+radius = 50.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
+radius = 76.0
+height = 152.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lquwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h2yge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lquwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7mycd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lquwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h2yge")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=568175097]
 position = Vector2(-174, -72)
 
 [node name="MapBg" type="Sprite2D" parent="." unique_id=886715212]
-position = Vector2(754, 398.00003)
-scale = Vector2(0.9206539, 0.5155503)
+position = Vector2(752.37506, 432.375)
+scale = Vector2(0.9180622, 0.57037485)
 texture = ExtResource("1_ig7tw")
+metadata/_edit_lock_ = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=684545117]
+[node name="StaticTower" type="StaticBody2D" parent="." unique_id=134242879]
 
-[node name="TowerTrial2" type="Sprite2D" parent="." unique_id=918302193]
-position = Vector2(558, 260)
-scale = Vector2(0.24072263, 0.19824219)
+[node name="Lvl1Tower" type="Sprite2D" parent="StaticTower" unique_id=1869907969]
+position = Vector2(751, 381.00003)
+scale = Vector2(0.24658206, 0.20214845)
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower" unique_id=751824907]
+position = Vector2(751, 419)
+shape = SubResource("CapsuleShape2D_0xm2m")
+
+[node name="Area2D" type="Area2D" parent="StaticTower" unique_id=733018711]
+position = Vector2(759, 438)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower/Area2D" unique_id=1656790329]
+position = Vector2(-8, -6)
+shape = SubResource("CapsuleShape2D_h2yge")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1714295158]
+position = Vector2(647.00006, 431.99997)
+scale = Vector2(0.19799049, 0.1890625)
+sprite_frames = SubResource("SpriteFrames_lquwl")
+frame_progress = 0.7530149
