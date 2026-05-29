@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bnit81bg4742r"]
 
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
-[ext_resource type="Texture2D" path="res://Sprites-Aranda/tower trial 2.png" id="2_0xm2m"]
 
 [node name="Node2D" type="Node2D" unique_id=568175097]
 position = Vector2(17, 13)
@@ -16,4 +15,3 @@ texture = ExtResource("1_ig7tw")
 [node name="TowerTrial2" type="Sprite2D" parent="." unique_id=918302193]
 position = Vector2(558, 260)
 scale = Vector2(0.24072263, 0.19824219)
-texture = ExtResource("2_0xm2m")
