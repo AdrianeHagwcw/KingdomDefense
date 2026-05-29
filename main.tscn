@@ -3,6 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bj6nuu08htpji" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
+radius = 50.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
+radius = 77.0
+height = 154.0
+
 [node name="Node2D" type="Node2D" unique_id=568175097]
 position = Vector2(-174, -72)
 
@@ -15,12 +23,17 @@ metadata/_edit_lock_ = true
 [node name="StaticTower" type="StaticBody2D" parent="." unique_id=134242879]
 
 [node name="Lvl1Tower" type="Sprite2D" parent="StaticTower" unique_id=1869907969]
-position = Vector2(752, 381)
+position = Vector2(751, 381.00003)
 scale = Vector2(0.24658206, 0.20214845)
 texture = ExtResource("2_0xm2m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower" unique_id=751824907]
+position = Vector2(751, 419)
+shape = SubResource("CapsuleShape2D_0xm2m")
 
 [node name="Area2D" type="Area2D" parent="StaticTower" unique_id=733018711]
+position = Vector2(759, 438)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower/Area2D" unique_id=1656790329]
+position = Vector2(-8, -6)
+shape = SubResource("CapsuleShape2D_h2yge")
