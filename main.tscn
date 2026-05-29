@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
 
 [node name="Node2D" type="Node2D" unique_id=568175097]
-position = Vector2(17, 13)
+position = Vector2(-174, -72)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=497772482]
 
 [node name="MapBg" type="Sprite2D" parent="." unique_id=886715212]
-position = Vector2(560, 314.24997)
-scale = Vector2(0.92264754, 0.5179426)
+position = Vector2(754, 398.00003)
+scale = Vector2(0.9206539, 0.5155503)
 texture = ExtResource("1_ig7tw")
