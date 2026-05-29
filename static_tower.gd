@@ -1,11 +1,22 @@
 extends StaticBody2D
 
+var health = 100
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_area_2d_body_entered(body):
 
+	if body.is_in_group("enemy"):
+		take_damage(10)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func take_damage(amount):
+
+	health -= amount
+	
+	print("Tower HP: ", health)
+
+	if health <= 0:
+		die()
+
+func die():
+
+	print("Tower Destroyed!")
+	queue_free()
