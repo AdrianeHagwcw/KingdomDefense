@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://bnit81bg4742r"]
 
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
-<<<<<<< Updated upstream
-[ext_resource type="Texture2D" uid="uid://bj6nuu08htpji" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://daf53dlih6u7h" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://feugrd3blymr" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 1.png" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://b1uvt0yrxkdyq" path="res://path_follow_2d.gd" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://be5l8vb4jywm1" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 2.png" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://bkrbaviwx7ax1" path="res://Sprites-Aranda/Giant Slime/Giant Slime walk 1.png" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://diwyysfdutm0v" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 3.png" id="5_7mycd"]
-[ext_resource type="Script" uid="uid://dn8nyp0oupk40" path="res://enemy.gd" id="5_efxa6"]
+[ext_resource type="Script" path="res://enemy.gd" id="5_efxa6"]
 [ext_resource type="Texture2D" uid="uid://baxdx563yoqp8" path="res://Sprites-Aranda/Giant Slime/Giant Slime walk 2.png" id="6_efxa6"]
 [ext_resource type="Texture2D" uid="uid://djsecunrfatjr" path="res://Sprites-Aranda/Giant Slime/Giant Slime 3.png" id="7_dg77c"]
 [ext_resource type="Texture2D" uid="uid://dtltb1nlrjsr1" path="res://Sprites-Aranda/LVL 2 TOWER.png" id="12_vivmo"]
@@ -99,13 +98,6 @@ animations = [{
 "name": &"walk",
 "speed": 5.0
 }]
-=======
-[ext_resource type="Texture2D" uid="uid://daf53dlih6u7h" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
-radius = 202.65259
-height = 405.30518
->>>>>>> Stashed changes
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycdy4"]
 radius = 35.057095
@@ -114,22 +106,12 @@ radius = 35.057095
 position = Vector2(-174, -72)
 
 [node name="MapBg" type="Sprite2D" parent="." unique_id=886715212]
-<<<<<<< Updated upstream
 position = Vector2(752.37506, 432.375)
 scale = Vector2(0.9180622, 0.57037485)
-=======
-position = Vector2(753.875, 437.875)
-scale = Vector2(0.91726476, 0.57595694)
->>>>>>> Stashed changes
 texture = ExtResource("1_ig7tw")
 metadata/_edit_lock_ = true
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-[node name="StaticTower" type="StaticBody2D" parent="." unique_id=134242879]
-=======
 [node name="StaticTower" type="StaticBody2D" parent="." unique_id=134242879 groups=["tower"]]
->>>>>>> pathnode
 script = ExtResource("2_272bh")
 
 [node name="Lvl1Tower" type="Sprite2D" parent="StaticTower" unique_id=1869907969]
@@ -225,11 +207,11 @@ position = Vector2(36, -1)
 shape = SubResource("CircleShape2D_ycdy4")
 
 [node name="Lvl2Tower" type="Sprite2D" parent="." unique_id=87385385]
-position = Vector2(543, 409)
+position = Vector2(510, -201)
 texture = ExtResource("12_vivmo")
 
 [node name="Lvl3Tower" type="Sprite2D" parent="." unique_id=1837880560]
-position = Vector2(989, 391)
+position = Vector2(1125, -229)
 texture = ExtResource("13_2cqfq")
 
 [node name="Lvl4Tower" type="Sprite2D" parent="." unique_id=841839054]
@@ -241,19 +223,5 @@ position = Vector2(1431, 919)
 texture = ExtResource("15_074og")
 
 [connection signal="body_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_body_entered"]
-<<<<<<< HEAD
-=======
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=684545117]
-
-[node name="Lvl1Tower" type="Sprite2D" parent="." unique_id=120225538]
-position = Vector2(749.99994, 384.00006)
-scale = Vector2(0.2269897, 0.21484376)
-texture = ExtResource("2_0xm2m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lvl1Tower" unique_id=416085544]
-shape = SubResource("CapsuleShape2D_0xm2m")
->>>>>>> Stashed changes
-=======
 [connection signal="area_entered" from="EastPath/PathFollow2D/Enemy/Area2D" to="EastPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="WestPath/PathFollow2D/Enemy/Area2D" to="WestPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
->>>>>>> pathnode
