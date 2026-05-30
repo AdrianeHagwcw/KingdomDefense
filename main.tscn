@@ -18,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://djsecunrfatjr" path="res://Sprites-Aranda/Giant Slime/Giant Slime 3.png" id="7_dg77c"]
 [ext_resource type="Texture2D" uid="uid://dgm7uk1yncipy" path="res://Sprites-Aranda/Goblin (B TO C)/Goblin walk 2.png" id="8_getpj"]
 [ext_resource type="Texture2D" uid="uid://c4qgtlc3nfycq" path="res://Sprites-Aranda/Goblin (B TO C)/Goblin walk 3.png" id="9_ryguw"]
+[ext_resource type="Texture2D" uid="uid://dtltb1nlrjsr1" path="res://Sprites-Aranda/LVL 2 TOWER.png" id="19_ryguw"]
+[ext_resource type="Texture2D" uid="uid://bti08xdyr0fch" path="res://Sprites-Aranda/LVL 5 TOWER.png" id="20_d13ii"]
+[ext_resource type="Texture2D" uid="uid://q0ys15iq8akp" path="res://Sprites-Aranda/LVL 4 TOWER.png" id="21_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://cswbdcghoterd" path="res://Sprites-Aranda/LVL 3 TOWER.png" id="22_0odxb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
 radius = 50.0
@@ -186,30 +190,6 @@ z_index = 1
 position = Vector2(-8, -6)
 shape = SubResource("CapsuleShape2D_h2yge")
 
-<<<<<<< HEAD
-=======
-[node name="NorthPath" type="Path2D" parent="." unique_id=1086819405]
-curve = SubResource("Curve2D_kek77")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="NorthPath" unique_id=43251832]
-position = Vector2(751, 79)
-rotation = 1.5671731
-
-[node name="Enemy" type="Node2D" parent="NorthPath/PathFollow2D" unique_id=892764606]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=1898471945]
-position = Vector2(137.00998, -2.5036197)
-rotation = -1.5670998
-scale = Vector2(0.53591734, 0.5350178)
-sprite_frames = SubResource("SpriteFrames_4c57u")
-frame = 1
-frame_progress = 0.4223025
-
-[node name="Area2D" type="Area2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=428152171]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthPath/PathFollow2D/Enemy/Area2D" unique_id=103689826]
-
->>>>>>> Sprites
 [node name="SouthPath" type="Path2D" parent="." unique_id=1306671178]
 curve = SubResource("Curve2D_efxa6")
 
@@ -222,16 +202,11 @@ script = ExtResource("4_5vw27")
 script = ExtResource("5_efxa6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=1460393993]
-position = Vector2(213.89984, 14.555987)
+position = Vector2(20.984911, 2.15267)
 rotation = 1.5736222
 scale = Vector2(0.58745986, 0.5466699)
 sprite_frames = SubResource("SpriteFrames_d13ii")
-<<<<<<< HEAD
 animation = &"walk"
-=======
-frame = 1
-frame_progress = 0.40706286
->>>>>>> Sprites
 
 [node name="Area2D" type="Area2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=451114681]
 
@@ -340,6 +315,28 @@ text = "Time -  00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 128
+
+[node name="Lvl2Tower" type="Sprite2D" parent="CanvasLayer/Panel" unique_id=703037457]
+position = Vector2(540, 860)
+texture = ExtResource("19_ryguw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/Panel/Lvl2Tower" unique_id=1723829621]
+
+[node name="Lvl5Tower" type="Sprite2D" parent="CanvasLayer/Panel/Lvl2Tower" unique_id=2137006823]
+position = Vector2(-276, 14)
+texture = ExtResource("20_d13ii")
+
+[node name="Lvl4Tower" type="Sprite2D" parent="CanvasLayer/Panel/Lvl2Tower" unique_id=1642859565]
+position = Vector2(313, 8)
+texture = ExtResource("21_1u8w0")
+
+[node name="Lvl3Tower" type="Sprite2D" parent="CanvasLayer/Panel" unique_id=178603305]
+position = Vector2(-328, 810)
+texture = ExtResource("22_0odxb")
+
+[node name="Lvl2Tower2" type="Sprite2D" parent="CanvasLayer/Panel" unique_id=807165701]
+position = Vector2(1186, 791)
+texture = ExtResource("19_ryguw")
 
 [connection signal="body_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="SouthPath/PathFollow2D/Enemy/Area2D" to="SouthPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
