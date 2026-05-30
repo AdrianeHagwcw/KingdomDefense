@@ -2,11 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bj6nuu08htpji" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://feugrd3blymr" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 1.png" id="3_h2yge"]
-[ext_resource type="Texture2D" uid="uid://be5l8vb4jywm1" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 2.png" id="4_lquwl"]
-[ext_resource type="Texture2D" uid="uid://diwyysfdutm0v" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 3.png" id="5_7mycd"]
-=======
 [ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://feugrd3blymr" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 1.png" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://b1uvt0yrxkdyq" path="res://path_follow_2d.gd" id="4_5vw27"]
@@ -16,38 +11,14 @@
 [ext_resource type="Script" uid="uid://dn8nyp0oupk40" path="res://enemy.gd" id="5_efxa6"]
 [ext_resource type="Texture2D" uid="uid://baxdx563yoqp8" path="res://Sprites-Aranda/Giant Slime/Giant Slime walk 2.png" id="6_efxa6"]
 [ext_resource type="Texture2D" uid="uid://djsecunrfatjr" path="res://Sprites-Aranda/Giant Slime/Giant Slime 3.png" id="7_dg77c"]
->>>>>>> pathnode
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
 radius = 50.0
 height = 100.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
-radius = 76.0
-height = 152.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lquwl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_h2yge")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_lquwl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_7mycd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_lquwl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_h2yge")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+radius = 77.0
+height = 154.0
 
 [sub_resource type="Curve2D" id="Curve2D_kek77"]
 _data = {
@@ -155,13 +126,6 @@ position = Vector2(759, 438)
 position = Vector2(-8, -6)
 shape = SubResource("CapsuleShape2D_h2yge")
 
-<<<<<<< HEAD
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1714295158]
-position = Vector2(647.00006, 431.99997)
-scale = Vector2(0.19799049, 0.1890625)
-sprite_frames = SubResource("SpriteFrames_lquwl")
-frame_progress = 0.7530149
-=======
 [node name="NorthPath" type="Path2D" parent="." unique_id=1086819405]
 curve = SubResource("Curve2D_kek77")
 
@@ -241,4 +205,3 @@ shape = SubResource("CircleShape2D_ycdy4")
 [connection signal="body_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="EastPath/PathFollow2D/Enemy/Area2D" to="EastPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="WestPath/PathFollow2D/Enemy/Area2D" to="WestPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
->>>>>>> pathnode
