@@ -180,11 +180,12 @@ rotation = 1.5671731
 [node name="Enemy" type="Node2D" parent="NorthPath/PathFollow2D" unique_id=892764606]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=1898471945]
-position = Vector2(18.003502, -0.934793)
+position = Vector2(137.00998, -2.5036197)
 rotation = -1.5670998
 scale = Vector2(0.53591734, 0.5350178)
 sprite_frames = SubResource("SpriteFrames_4c57u")
-frame_progress = 0.83260095
+frame = 1
+frame_progress = 0.4223025
 
 [node name="Area2D" type="Area2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=428152171]
 
@@ -200,11 +201,12 @@ rotation = -1.578069
 [node name="Enemy" type="Node2D" parent="SouthPath/PathFollow2D" unique_id=1480244959]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=1460393993]
-position = Vector2(20.984911, 2.15267)
+position = Vector2(213.89984, 14.555987)
 rotation = 1.5736222
 scale = Vector2(0.58745986, 0.5466699)
 sprite_frames = SubResource("SpriteFrames_d13ii")
-frame_progress = 0.30185345
+frame = 1
+frame_progress = 0.40706286
 
 [node name="Area2D" type="Area2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=451114681]
 
