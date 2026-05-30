@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bkrbaviwx7ax1" path="res://Sprites-Aranda/Giant Slime/Giant Slime walk 1.png" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://diwyysfdutm0v" path="res://Sprites-Aranda/Regular slime (L TO C)/Regular Slime walk 3.png" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://b3iylp8bwbt6m" path="res://Sprites-Aranda/Goblin (T TO C)/Goblin walk 2.png" id="5_074og"]
-[ext_resource type="Script" path="res://enemy.gd" id="5_efxa6"]
+[ext_resource type="Script" uid="uid://dn8nyp0oupk40" path="res://enemy.gd" id="5_efxa6"]
 [ext_resource type="Texture2D" uid="uid://bfls5dksbx5y2" path="res://Sprites-Aranda/Goblin (T TO C)/Goblin walk 3.png" id="6_cegan"]
 [ext_resource type="Texture2D" uid="uid://baxdx563yoqp8" path="res://Sprites-Aranda/Giant Slime/Giant Slime walk 2.png" id="6_efxa6"]
 [ext_resource type="Texture2D" uid="uid://b318sfq5sdumw" path="res://Sprites-Aranda/Goblin (B TO C)/Goblin walk 1.png" id="7_82xsv"]
@@ -25,32 +25,6 @@ height = 100.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
 radius = 77.0
 height = 154.0
-
-[sub_resource type="Curve2D" id="Curve2D_kek77"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 751, 79, 0, 0, 0, 0, 752, 355)
-}
-point_count = 2
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_yaehf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_074og")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_cegan")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_074og")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="Curve2D" id="Curve2D_efxa6"]
 _data = {
@@ -74,9 +48,13 @@ animations = [{
 "texture": ExtResource("8_getpj")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 5.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_074og"]
+radius = 31.999146
+height = 70.012695
 
 [sub_resource type="Curve2D" id="Curve2D_dg77c"]
 _data = {
@@ -142,6 +120,36 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycdy4"]
 radius = 35.057095
 
+[sub_resource type="Curve2D" id="Curve2D_kek77"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 751, 79, 0, 0, 0, 0, 752, 355)
+}
+point_count = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yaehf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_074og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cegan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_074og")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yaehf"]
+radius = 30.025146
+height = 60.050293
+
 [node name="Node2D" type="Node2D" unique_id=568175097]
 position = Vector2(-174, -72)
 
@@ -155,6 +163,7 @@ metadata/_edit_lock_ = true
 script = ExtResource("2_272bh")
 
 [node name="Lvl1Tower" type="Sprite2D" parent="StaticTower" unique_id=1869907969]
+z_index = 1
 position = Vector2(751, 381.00003)
 scale = Vector2(0.24658206, 0.20214845)
 texture = ExtResource("2_0xm2m")
@@ -170,45 +179,29 @@ position = Vector2(759, 438)
 position = Vector2(-8, -6)
 shape = SubResource("CapsuleShape2D_h2yge")
 
-[node name="NorthPath" type="Path2D" parent="." unique_id=1086819405]
-curve = SubResource("Curve2D_kek77")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="NorthPath" unique_id=43251832]
-position = Vector2(751, 79)
-rotation = 1.5671731
-
-[node name="Enemy" type="Node2D" parent="NorthPath/PathFollow2D" unique_id=892764606]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=1898471945]
-position = Vector2(18.003502, -0.934793)
-rotation = -1.5670998
-scale = Vector2(0.53591734, 0.5350178)
-sprite_frames = SubResource("SpriteFrames_4c57u")
-frame_progress = 0.83260095
-
-[node name="Area2D" type="Area2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=428152171]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthPath/PathFollow2D/Enemy/Area2D" unique_id=103689826]
-
 [node name="SouthPath" type="Path2D" parent="." unique_id=1306671178]
 curve = SubResource("Curve2D_efxa6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SouthPath" unique_id=33250402]
 position = Vector2(754, 781)
 rotation = -1.578069
+script = ExtResource("4_5vw27")
 
 [node name="Enemy" type="Node2D" parent="SouthPath/PathFollow2D" unique_id=1480244959]
+script = ExtResource("5_efxa6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=1460393993]
 position = Vector2(20.984911, 2.15267)
 rotation = 1.5736222
 scale = Vector2(0.58745986, 0.5466699)
 sprite_frames = SubResource("SpriteFrames_d13ii")
-frame_progress = 0.30185345
+animation = &"walk"
 
 [node name="Area2D" type="Area2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=451114681]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SouthPath/PathFollow2D/Enemy/Area2D" unique_id=1872660731]
+position = Vector2(21.97033, 4.159891)
+shape = SubResource("CapsuleShape2D_074og")
 
 [node name="EastPath" type="Path2D" parent="." unique_id=1145847771]
 curve = SubResource("Curve2D_dg77c")
@@ -257,6 +250,32 @@ animation = &"walk"
 position = Vector2(36, -1)
 shape = SubResource("CircleShape2D_ycdy4")
 
+[node name="NorthPath" type="Path2D" parent="." unique_id=2021140099]
+curve = SubResource("Curve2D_kek77")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="NorthPath" unique_id=1025050271]
+position = Vector2(751, 79)
+rotation = 1.5671731
+script = ExtResource("4_5vw27")
+
+[node name="Enemy" type="Node2D" parent="NorthPath/PathFollow2D" unique_id=2067363895]
+script = ExtResource("5_efxa6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=569008512]
+position = Vector2(18.003502, -0.934793)
+rotation = -1.5670998
+scale = Vector2(0.53591734, 0.5350178)
+sprite_frames = SubResource("SpriteFrames_4c57u")
+animation = &"walk"
+
+[node name="Area2D" type="Area2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=652416232]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthPath/PathFollow2D/Enemy/Area2D" unique_id=1185357836]
+position = Vector2(18.999876, 0.06884068)
+shape = SubResource("CapsuleShape2D_yaehf")
+
 [connection signal="body_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="SouthPath/PathFollow2D/Enemy/Area2D" to="SouthPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="EastPath/PathFollow2D/Enemy/Area2D" to="EastPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="WestPath/PathFollow2D/Enemy/Area2D" to="WestPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="NorthPath/PathFollow2D/Enemy/Area2D" to="NorthPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
