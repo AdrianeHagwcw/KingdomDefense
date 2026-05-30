@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bnit81bg4742r"]
 
+[ext_resource type="Script" uid="uid://rpbo6ncicr5n" path="res://main.gd" id="1_074og"]
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://daf53dlih6u7h" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
@@ -150,8 +151,12 @@ animations = [{
 radius = 30.025146
 height = 60.050293
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
+bg_color = Color(0.048234254, 0.16447926, 0.13391936, 1)
+
 [node name="Node2D" type="Node2D" unique_id=568175097]
 position = Vector2(-174, -72)
+script = ExtResource("1_074og")
 
 [node name="MapBg" type="Sprite2D" parent="." unique_id=886715212]
 position = Vector2(752.37506, 432.375)
@@ -169,6 +174,7 @@ scale = Vector2(0.24658206, 0.20214845)
 texture = ExtResource("2_0xm2m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower" unique_id=751824907]
+z_index = 1
 position = Vector2(751, 419)
 shape = SubResource("CapsuleShape2D_0xm2m")
 
@@ -176,9 +182,34 @@ shape = SubResource("CapsuleShape2D_0xm2m")
 position = Vector2(759, 438)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower/Area2D" unique_id=1656790329]
+z_index = 1
 position = Vector2(-8, -6)
 shape = SubResource("CapsuleShape2D_h2yge")
 
+<<<<<<< HEAD
+=======
+[node name="NorthPath" type="Path2D" parent="." unique_id=1086819405]
+curve = SubResource("Curve2D_kek77")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="NorthPath" unique_id=43251832]
+position = Vector2(751, 79)
+rotation = 1.5671731
+
+[node name="Enemy" type="Node2D" parent="NorthPath/PathFollow2D" unique_id=892764606]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=1898471945]
+position = Vector2(137.00998, -2.5036197)
+rotation = -1.5670998
+scale = Vector2(0.53591734, 0.5350178)
+sprite_frames = SubResource("SpriteFrames_4c57u")
+frame = 1
+frame_progress = 0.4223025
+
+[node name="Area2D" type="Area2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=428152171]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthPath/PathFollow2D/Enemy/Area2D" unique_id=103689826]
+
+>>>>>>> Sprites
 [node name="SouthPath" type="Path2D" parent="." unique_id=1306671178]
 curve = SubResource("Curve2D_efxa6")
 
@@ -191,11 +222,16 @@ script = ExtResource("4_5vw27")
 script = ExtResource("5_efxa6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=1460393993]
-position = Vector2(20.984911, 2.15267)
+position = Vector2(213.89984, 14.555987)
 rotation = 1.5736222
 scale = Vector2(0.58745986, 0.5466699)
 sprite_frames = SubResource("SpriteFrames_d13ii")
+<<<<<<< HEAD
 animation = &"walk"
+=======
+frame = 1
+frame_progress = 0.40706286
+>>>>>>> Sprites
 
 [node name="Area2D" type="Area2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=451114681]
 
@@ -273,6 +309,37 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NorthPath/PathFollow2D/Enemy/Area2D" unique_id=1185357836]
 position = Vector2(18.999876, 0.06884068)
 shape = SubResource("CapsuleShape2D_yaehf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1108670367]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1294256945]
+anchors_preset = -1
+anchor_left = 0.036000002
+anchor_top = 0.037
+anchor_right = 0.209
+anchor_bottom = 0.093
+offset_left = 0.52799606
+offset_top = 0.3600006
+offset_right = 0.23199463
+offset_bottom = 0.040000916
+theme_override_styles/panel = SubResource("StyleBoxFlat_074og")
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/Panel" unique_id=366530867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 1.0
+offset_right = -11.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Time -  00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
 
 [connection signal="body_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="SouthPath/PathFollow2D/Enemy/Area2D" to="SouthPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
