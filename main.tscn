@@ -11,6 +11,10 @@
 [ext_resource type="Script" uid="uid://dn8nyp0oupk40" path="res://enemy.gd" id="5_efxa6"]
 [ext_resource type="Texture2D" uid="uid://baxdx563yoqp8" path="res://Sprites-Aranda/Giant Slime/Giant Slime walk 2.png" id="6_efxa6"]
 [ext_resource type="Texture2D" uid="uid://djsecunrfatjr" path="res://Sprites-Aranda/Giant Slime/Giant Slime 3.png" id="7_dg77c"]
+[ext_resource type="Texture2D" uid="uid://dtltb1nlrjsr1" path="res://Sprites-Aranda/LVL 2 TOWER.png" id="12_vivmo"]
+[ext_resource type="Texture2D" uid="uid://cswbdcghoterd" path="res://Sprites-Aranda/LVL 3 TOWER.png" id="13_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://q0ys15iq8akp" path="res://Sprites-Aranda/LVL 4 TOWER.png" id="14_yaehf"]
+[ext_resource type="Texture2D" uid="uid://bti08xdyr0fch" path="res://Sprites-Aranda/LVL 5 TOWER.png" id="15_074og"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
 radius = 50.0
@@ -201,6 +205,22 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WestPath/PathFollow2D/Enemy/Area2D" unique_id=1119104442]
 position = Vector2(36, -1)
 shape = SubResource("CircleShape2D_ycdy4")
+
+[node name="Lvl2Tower" type="Sprite2D" parent="." unique_id=87385385]
+position = Vector2(543, 409)
+texture = ExtResource("12_vivmo")
+
+[node name="Lvl3Tower" type="Sprite2D" parent="." unique_id=1837880560]
+position = Vector2(989, 391)
+texture = ExtResource("13_2cqfq")
+
+[node name="Lvl4Tower" type="Sprite2D" parent="." unique_id=841839054]
+position = Vector2(262, 935)
+texture = ExtResource("14_yaehf")
+
+[node name="Lvl5Tower" type="Sprite2D" parent="." unique_id=2037307708]
+position = Vector2(1431, 919)
+texture = ExtResource("15_074og")
 
 [connection signal="body_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="EastPath/PathFollow2D/Enemy/Area2D" to="EastPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
