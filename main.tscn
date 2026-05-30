@@ -18,10 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://djsecunrfatjr" path="res://Sprites-Aranda/Giant Slime/Giant Slime 3.png" id="7_dg77c"]
 [ext_resource type="Texture2D" uid="uid://dgm7uk1yncipy" path="res://Sprites-Aranda/Goblin (B TO C)/Goblin walk 2.png" id="8_getpj"]
 [ext_resource type="Texture2D" uid="uid://c4qgtlc3nfycq" path="res://Sprites-Aranda/Goblin (B TO C)/Goblin walk 3.png" id="9_ryguw"]
-[ext_resource type="Texture2D" uid="uid://dtltb1nlrjsr1" path="res://Sprites-Aranda/LVL 2 TOWER.png" id="19_ryguw"]
-[ext_resource type="Texture2D" uid="uid://bti08xdyr0fch" path="res://Sprites-Aranda/LVL 5 TOWER.png" id="20_d13ii"]
-[ext_resource type="Texture2D" uid="uid://q0ys15iq8akp" path="res://Sprites-Aranda/LVL 4 TOWER.png" id="21_1u8w0"]
-[ext_resource type="Texture2D" uid="uid://cswbdcghoterd" path="res://Sprites-Aranda/LVL 3 TOWER.png" id="22_0odxb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
 radius = 50.0
@@ -315,28 +311,6 @@ text = "Time -  00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 128
-
-[node name="Lvl2Tower" type="Sprite2D" parent="CanvasLayer/Panel" unique_id=703037457]
-position = Vector2(540, 860)
-texture = ExtResource("19_ryguw")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/Panel/Lvl2Tower" unique_id=1723829621]
-
-[node name="Lvl5Tower" type="Sprite2D" parent="CanvasLayer/Panel/Lvl2Tower" unique_id=2137006823]
-position = Vector2(-276, 14)
-texture = ExtResource("20_d13ii")
-
-[node name="Lvl4Tower" type="Sprite2D" parent="CanvasLayer/Panel/Lvl2Tower" unique_id=1642859565]
-position = Vector2(313, 8)
-texture = ExtResource("21_1u8w0")
-
-[node name="Lvl3Tower" type="Sprite2D" parent="CanvasLayer/Panel" unique_id=178603305]
-position = Vector2(-328, 810)
-texture = ExtResource("22_0odxb")
-
-[node name="Lvl2Tower2" type="Sprite2D" parent="CanvasLayer/Panel" unique_id=807165701]
-position = Vector2(1186, 791)
-texture = ExtResource("19_ryguw")
 
 [connection signal="body_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="SouthPath/PathFollow2D/Enemy/Area2D" to="SouthPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
