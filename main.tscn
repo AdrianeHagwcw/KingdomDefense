@@ -43,8 +43,6 @@ point_count = 2
 [sub_resource type="GDScript" id="GDScript_lquwl"]
 script/source = "extends Node2D
 
-signal reached_tower
-
 @export var speed: float = 100.0
 
 func _ready():
