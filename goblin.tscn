@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://db7h64cuvewmw"]
+
+[ext_resource type="Script" uid="uid://dn8nyp0oupk40" path="res://enemy.gd" id="1_iifgy"]
+[ext_resource type="Texture2D" uid="uid://bm8dnicnx5msg" path="res://Sprites-Aranda/Goblin (T TO C)/Goblin walk 1.png" id="2_macxp"]
+[ext_resource type="Texture2D" uid="uid://b3iylp8bwbt6m" path="res://Sprites-Aranda/Goblin (T TO C)/Goblin walk 2.png" id="3_eyhpr"]
+[ext_resource type="Texture2D" uid="uid://bfls5dksbx5y2" path="res://Sprites-Aranda/Goblin (T TO C)/Goblin walk 3.png" id="4_utad2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d13ii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_macxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eyhpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_utad2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eyhpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_macxp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_074og"]
+radius = 31.999146
+height = 70.012695
+
+[node name="Enemy" type="Node2D" unique_id=102760201 groups=["enemy"]]
+script = ExtResource("1_iifgy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707755712]
+position = Vector2(3, 1.0000001)
+rotation = 0.02661175
+scale = Vector2(0.58745986, 0.5466699)
+sprite_frames = SubResource("SpriteFrames_d13ii")
+animation = &"walk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=216433283]
+position = Vector2(14, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=533182005]
+position = Vector2(-14, 5)
+shape = SubResource("CapsuleShape2D_074og")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

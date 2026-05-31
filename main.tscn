@@ -3,29 +3,16 @@
 [ext_resource type="Script" uid="uid://rpbo6ncicr5n" path="res://main.gd" id="1_074og"]
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://daf53dlih6u7h" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://db7h64cuvewmw" path="res://goblin.tscn" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
-[ext_resource type="Texture2D" uid="uid://feugrd3blymr" path="res://Sprites-Aranda/Regular slime (L TO C)/Regular Slime walk 1.png" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://b1uvt0yrxkdyq" path="res://path_follow_2d.gd" id="4_5vw27"]
-[ext_resource type="Texture2D" uid="uid://be5l8vb4jywm1" path="res://Sprites-Aranda/Regular slime (L TO C)/Regular Slime walk 2.png" id="4_lquwl"]
-[ext_resource type="Texture2D" uid="uid://bm8dnicnx5msg" path="res://Sprites-Aranda/Goblin (T TO C)/Goblin walk 1.png" id="4_yaehf"]
-[ext_resource type="Texture2D" uid="uid://bkrbaviwx7ax1" path="res://Sprites-Aranda/Giant Slime/Giant Slime walk 1.png" id="5_4c57u"]
-[ext_resource type="Texture2D" uid="uid://diwyysfdutm0v" path="res://Sprites-Aranda/Regular slime (L TO C)/Regular Slime walk 3.png" id="5_7mycd"]
-[ext_resource type="Texture2D" uid="uid://b3iylp8bwbt6m" path="res://Sprites-Aranda/Goblin (T TO C)/Goblin walk 2.png" id="5_074og"]
-[ext_resource type="Script" uid="uid://dn8nyp0oupk40" path="res://enemy.gd" id="5_efxa6"]
-[ext_resource type="Texture2D" uid="uid://bfls5dksbx5y2" path="res://Sprites-Aranda/Goblin (T TO C)/Goblin walk 3.png" id="6_cegan"]
-[ext_resource type="Texture2D" uid="uid://baxdx563yoqp8" path="res://Sprites-Aranda/Giant Slime/Giant Slime walk 2.png" id="6_efxa6"]
-[ext_resource type="Texture2D" uid="uid://b318sfq5sdumw" path="res://Sprites-Aranda/Goblin (B TO C)/Goblin walk 1.png" id="7_82xsv"]
-[ext_resource type="Texture2D" uid="uid://djsecunrfatjr" path="res://Sprites-Aranda/Giant Slime/Giant Slime 3.png" id="7_dg77c"]
-[ext_resource type="Texture2D" uid="uid://dgm7uk1yncipy" path="res://Sprites-Aranda/Goblin (B TO C)/Goblin walk 2.png" id="8_getpj"]
-[ext_resource type="Texture2D" uid="uid://c4qgtlc3nfycq" path="res://Sprites-Aranda/Goblin (B TO C)/Goblin walk 3.png" id="9_ryguw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
 radius = 50.0
 height = 100.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
-radius = 77.0
-height = 154.0
+radius = 86.0
+height = 172.0
 
 [sub_resource type="Curve2D" id="Curve2D_efxa6"]
 _data = {
@@ -33,61 +20,11 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_d13ii"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_82xsv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_getpj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_ryguw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_getpj")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_074og"]
-radius = 31.999146
-height = 70.012695
-
 [sub_resource type="Curve2D" id="Curve2D_dg77c"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1314, 431, 0, 0, 0, 0, 892, 432)
 }
 point_count = 2
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ycdy4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_4c57u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_efxa6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_dg77c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_efxa6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_4c57u")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dg77c"]
-radius = 65.99994
 
 [sub_resource type="Curve2D" id="Curve2D_ycdy4"]
 _data = {
@@ -95,68 +32,61 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_w48qg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_h2yge")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_lquwl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_7mycd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_lquwl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_h2yge")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ycdy4"]
-radius = 35.057095
-
 [sub_resource type="Curve2D" id="Curve2D_kek77"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 751, 79, 0, 0, 0, 0, 752, 355)
 }
 point_count = 2
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_yaehf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_074og")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_cegan")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_074og")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[sub_resource type="GDScript" id="GDScript_lquwl"]
+script/source = "extends Node2D
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yaehf"]
-radius = 30.025146
-height = 60.050293
+signal reached_tower
+
+@export var speed: float = 100.0
+
+func _ready():
+
+	if has_node(\"AnimatedSprite2D\"):
+		$AnimatedSprite2D.play(\"walk\")
+
+func _process(delta):
+
+	var parent = get_parent()
+
+	if parent is PathFollow2D:
+		parent.progress += speed * delta
+
+func _on_area_2d_area_entered(area):
+
+	print(\"Enemy touched:\", area.name)
+
+	if area.is_in_group(\"tower\"):
+
+		print(\"Reached tower!\")
+
+		var tower = get_tree().get_first_node_in_group(\"tower\")
+
+		if tower:
+			tower.take_damage(10)
+
+		queue_free()
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
 bg_color = Color(0.048234254, 0.16447926, 0.13391936, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegan"]
+bg_color = Color(0.24171454, 0.24560302, 0.2472673, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82xsv"]
+bg_color = Color(0.45434064, 0.037099008, 0.09871092, 1)
+
 [node name="Node2D" type="Node2D" unique_id=568175097]
 position = Vector2(-174, -72)
 script = ExtResource("1_074og")
+north_enemy = ExtResource("2_7mycd")
+metadata/_edit_lock_ = true
 
 [node name="MapBg" type="Sprite2D" parent="." unique_id=886715212]
 position = Vector2(752.37506, 432.375)
@@ -166,6 +96,7 @@ metadata/_edit_lock_ = true
 
 [node name="StaticTower" type="StaticBody2D" parent="." unique_id=134242879 groups=["tower"]]
 script = ExtResource("2_272bh")
+metadata/_edit_lock_ = true
 
 [node name="Lvl1Tower" type="Sprite2D" parent="StaticTower" unique_id=1869907969]
 z_index = 1
@@ -183,7 +114,7 @@ position = Vector2(759, 438)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower/Area2D" unique_id=1656790329]
 z_index = 1
-position = Vector2(-8, -6)
+position = Vector2(-7, -6)
 shape = SubResource("CapsuleShape2D_h2yge")
 
 [node name="SouthPath" type="Path2D" parent="." unique_id=1306671178]
@@ -192,23 +123,6 @@ curve = SubResource("Curve2D_efxa6")
 [node name="PathFollow2D" type="PathFollow2D" parent="SouthPath" unique_id=33250402]
 position = Vector2(754, 781)
 rotation = -1.578069
-script = ExtResource("4_5vw27")
-
-[node name="Enemy" type="Node2D" parent="SouthPath/PathFollow2D" unique_id=1480244959]
-script = ExtResource("5_efxa6")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=1460393993]
-position = Vector2(20.984911, 2.15267)
-rotation = 1.5736222
-scale = Vector2(0.58745986, 0.5466699)
-sprite_frames = SubResource("SpriteFrames_d13ii")
-animation = &"walk"
-
-[node name="Area2D" type="Area2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=451114681]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SouthPath/PathFollow2D/Enemy/Area2D" unique_id=1872660731]
-position = Vector2(21.97033, 4.159891)
-shape = SubResource("CapsuleShape2D_074og")
 
 [node name="EastPath" type="Path2D" parent="." unique_id=1145847771]
 curve = SubResource("Curve2D_dg77c")
@@ -216,23 +130,6 @@ curve = SubResource("Curve2D_dg77c")
 [node name="PathFollow2D" type="PathFollow2D" parent="EastPath" unique_id=688243854]
 position = Vector2(1314, 431)
 rotation = 3.139223
-script = ExtResource("4_5vw27")
-
-[node name="Enemy" type="Node2D" parent="EastPath/PathFollow2D" unique_id=1954409603]
-script = ExtResource("5_efxa6")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EastPath/PathFollow2D/Enemy" unique_id=1750056235]
-position = Vector2(49.17442, 14.41796)
-rotation = 3.133261
-scale = Vector2(0.27645648, 0.26324743)
-sprite_frames = SubResource("SpriteFrames_ycdy4")
-animation = &"walk"
-
-[node name="Area2D" type="Area2D" parent="EastPath/PathFollow2D/Enemy" unique_id=316927418]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EastPath/PathFollow2D/Enemy/Area2D" unique_id=1190778493]
-position = Vector2(51, 4.999995)
-shape = SubResource("CircleShape2D_dg77c")
 
 [node name="WestPath" type="Path2D" parent="." unique_id=837985005]
 curve = SubResource("Curve2D_ycdy4")
@@ -240,22 +137,6 @@ curve = SubResource("Curve2D_ycdy4")
 [node name="PathFollow2D" type="PathFollow2D" parent="WestPath" unique_id=1178560822]
 position = Vector2(183, 430)
 rotation = 0.0022222186
-script = ExtResource("4_5vw27")
-
-[node name="Enemy" type="Node2D" parent="WestPath/PathFollow2D" unique_id=333149232]
-script = ExtResource("5_efxa6")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WestPath/PathFollow2D/Enemy" unique_id=1329588044]
-position = Vector2(36.531254, 1.0624933)
-scale = Vector2(0.17715721, 0.15664059)
-sprite_frames = SubResource("SpriteFrames_w48qg")
-animation = &"walk"
-
-[node name="Area2D" type="Area2D" parent="WestPath/PathFollow2D/Enemy" unique_id=1429182038]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WestPath/PathFollow2D/Enemy/Area2D" unique_id=1119104442]
-position = Vector2(36, -1)
-shape = SubResource("CircleShape2D_ycdy4")
 
 [node name="NorthPath" type="Path2D" parent="." unique_id=2021140099]
 curve = SubResource("Curve2D_kek77")
@@ -263,23 +144,7 @@ curve = SubResource("Curve2D_kek77")
 [node name="PathFollow2D" type="PathFollow2D" parent="NorthPath" unique_id=1025050271]
 position = Vector2(751, 79)
 rotation = 1.5671731
-script = ExtResource("4_5vw27")
-
-[node name="Enemy" type="Node2D" parent="NorthPath/PathFollow2D" unique_id=2067363895]
-script = ExtResource("5_efxa6")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=569008512]
-position = Vector2(18.003502, -0.934793)
-rotation = -1.5670998
-scale = Vector2(0.53591734, 0.5350178)
-sprite_frames = SubResource("SpriteFrames_4c57u")
-animation = &"walk"
-
-[node name="Area2D" type="Area2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=652416232]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthPath/PathFollow2D/Enemy/Area2D" unique_id=1185357836]
-position = Vector2(18.999876, 0.06884068)
-shape = SubResource("CapsuleShape2D_yaehf")
+script = SubResource("GDScript_lquwl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1108670367]
 
@@ -294,6 +159,7 @@ offset_top = 0.3600006
 offset_right = 0.23199463
 offset_bottom = 0.040000916
 theme_override_styles/panel = SubResource("StyleBoxFlat_074og")
+metadata/_edit_use_anchors_ = true
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer/Panel" unique_id=366530867]
 layout_mode = 1
@@ -311,9 +177,25 @@ text = "Time -  00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 128
+metadata/_edit_use_anchors_ = true
 
-[connection signal="body_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_body_entered"]
-[connection signal="area_entered" from="SouthPath/PathFollow2D/Enemy/Area2D" to="SouthPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="EastPath/PathFollow2D/Enemy/Area2D" to="EastPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="WestPath/PathFollow2D/Enemy/Area2D" to="WestPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="NorthPath/PathFollow2D/Enemy/Area2D" to="NorthPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
+[node name="TowerHealthBar" type="ProgressBar" parent="." unique_id=1576220860]
+offset_left = 200.0
+offset_top = 747.0
+offset_right = 577.0
+offset_bottom = 773.0
+theme_override_styles/background = SubResource("StyleBoxFlat_cegan")
+theme_override_styles/fill = SubResource("StyleBoxFlat_82xsv")
+value = 100.0
+show_percentage = false
+
+[node name="TowerHealthLabel" type="Label" parent="." unique_id=1226160412]
+offset_left = 263.0
+offset_top = 716.0
+offset_right = 493.0
+offset_bottom = 750.0
+text = "Tower HP: 100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_area_entered"]
