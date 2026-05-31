@@ -1,23 +1,24 @@
 extends StaticBody2D
 
+signal tower_destroyed
+
 var max_health = 100
 var health = 100
+var is_dead = false
 
 @onready var health_bar = get_node("../TowerHealthBar")
 @onready var health_label = get_node("../TowerHealthLabel")
 
+
 func _ready():
+	add_to_group("tower")
 	update_health_ui()
 
-# Detect enemy Area2D entering tower Area2D
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.get_parent().is_in_group("enemy"):
-		take_damage(10)
-
-		# Remove enemy
-		area.get_parent().queue_free()
 
 func take_damage(amount):
+	if is_dead:
+		return
+
 	health -= amount
 
 	if health < 0:
@@ -30,12 +31,25 @@ func take_damage(amount):
 	if health <= 0:
 		die()
 
+
 func update_health_ui():
 	health_bar.max_value = max_health
 	health_bar.value = health
 
 	health_label.text = "Tower HP: %d/%d" % [health, max_health]
 
+
+func reset_tower():
+	is_dead = false
+	health = max_health
+	show()
+	update_health_ui()
+
+
 func die():
+	if is_dead:
+		return
+
+	is_dead = true
 	print("Tower Destroyed!")
-	queue_free()
+	tower_destroyed.emit()

@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://bcmyaios7jojr"]
+
+[ext_resource type="Texture2D" uid="uid://bfotcwdh5b8ki" path="res://Sprites-Aranda/BackGround.png" id="1_h7a2f"]
+[ext_resource type="Texture2D" uid="uid://pumelwctus5j" path="res://Sprites-Aranda/button_ui.png" id="2_qoqlk"]
+[ext_resource type="Texture2D" uid="uid://coadmgwt7x3ah" path="res://Sprites-Aranda/button_onClick.png" id="3_iwfq2"]
+[ext_resource type="FontFile" uid="uid://bvk6bcyaaciv1" path="res://Sprites-Aranda/Kenney Future Narrow.ttf" id="4_qoqlk"]
+[ext_resource type="Texture2D" uid="uid://dx8whyigseb4x" path="res://Sprites-Aranda/KingdomDefenseLogo.png" id="5_iwfq2"]
+[ext_resource type="Texture2D" uid="uid://mcechoiurc2w" path="res://Sprites-Aranda/GameOverLogo.png" id="6_7r1g0"]
+
+[node name="MainMenu" type="Control" unique_id=1249432315]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="B" type="TextureRect" parent="." unique_id=82645100]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_h7a2f")
+expand_mode = 5
+
+[node name="MainPanel" type="MarginContainer" parent="." unique_id=1128267429]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VB" type="VBoxContainer" parent="MainPanel" unique_id=970740164]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="StartGame" type="TextureButton" parent="MainPanel/VB" unique_id=266932716]
+custom_minimum_size = Vector2(350, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_qoqlk")
+texture_pressed = ExtResource("3_iwfq2")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MainPanel/VB/StartGame" unique_id=1450212235]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.23529412)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_qoqlk")
+theme_override_font_sizes/font_size = 40
+text = "Start Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="About" type="TextureButton" parent="MainPanel/VB" unique_id=1982779899]
+custom_minimum_size = Vector2(350, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_qoqlk")
+texture_pressed = ExtResource("3_iwfq2")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MainPanel/VB/About" unique_id=1427480076]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.23529412)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_qoqlk")
+theme_override_font_sizes/font_size = 40
+text = "About"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="TextureButton" parent="MainPanel/VB" unique_id=1537426433]
+custom_minimum_size = Vector2(350, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_qoqlk")
+texture_pressed = ExtResource("3_iwfq2")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MainPanel/VB/Credits" unique_id=92547004]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.23529412)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_qoqlk")
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MainPanel/VB" unique_id=1975281726]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+
+[node name="Quit" type="TextureButton" parent="MainPanel/VB" unique_id=117866982]
+custom_minimum_size = Vector2(350, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_qoqlk")
+texture_pressed = ExtResource("3_iwfq2")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MainPanel/VB/Quit" unique_id=416903583]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.23529412)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_qoqlk")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KingdomDefenseLogo" type="Sprite2D" parent="MainPanel" unique_id=1986799699]
+position = Vector2(332.12503, 352.125)
+scale = Vector2(0.4734849, 0.4511563)
+texture = ExtResource("5_iwfq2")
+
+[node name="AboutPanel" type="Panel" parent="." unique_id=1878718160]
+visible = false
+layout_mode = 0
+offset_right = 627.0
+offset_bottom = 719.0
+
+[node name="AboutText" type="Label" parent="AboutPanel" unique_id=639374790]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_qoqlk")
+theme_override_font_sizes/font_size = 40
+text = "Kingdom Defense's
+mechanics of 
+the game is all about
+defending your tower
+from the mobs that are 
+charging towards it. 
+UPGRADE AND DEFEND IT 
+AT ALL COST!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="AboutPanel/AboutText" unique_id=1826666718]
+layout_mode = 0
+offset_right = 86.0
+offset_bottom = 52.0
+text = "<< Back"
+
+[node name="KingdomDefenseLogo" type="Sprite2D" parent="AboutPanel" unique_id=798553176]
+position = Vector2(883.0001, 348)
+scale = Vector2(0.382177, 0.3367225)
+texture = ExtResource("5_iwfq2")
+
+[node name="CreditsPanel" type="Panel" parent="." unique_id=1275346053]
+visible = false
+layout_mode = 0
+offset_right = 599.0
+offset_bottom = 715.0
+
+[node name="CreditsText" type="Label" parent="CreditsPanel" unique_id=210115552]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_qoqlk")
+theme_override_font_sizes/font_size = 40
+text = "PROJECT MEMBERS:
+
+ARANDA, ADRIANE
+ISRAEL BASILIO
+SARDOMA, JOHN DAVE
+VILLASIS, JHON ERICK
+CATUNAO, KEN BLUE
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="CreditsPanel/CreditsText" unique_id=2067497536]
+layout_mode = 0
+offset_right = 116.0
+offset_bottom = 58.0
+text = "<< Back"
+
+[node name="KingdomDefenseLogo" type="Sprite2D" parent="CreditsPanel" unique_id=1772552799]
+position = Vector2(879.75006, 348.03125)
+scale = Vector2(0.3720095, 0.33657297)
+texture = ExtResource("5_iwfq2")
+
+[node name="GameOverPanel" type="Panel" parent="." unique_id=710077332]
+visible = false
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 721.0
+
+[node name="GameOverText" type="Label" parent="GameOverPanel" unique_id=1533349872]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.5
+offset_top = -10.5
+offset_right = 322.5
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_qoqlk")
+theme_override_font_sizes/font_size = 65
+text = "The Game is Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverPanel" unique_id=413205840]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 445.0
+offset_right = 521.0
+offset_bottom = 482.0
+theme_override_fonts/font = ExtResource("4_qoqlk")
+theme_override_font_sizes/font_size = 25
+text = "Restart the Game"
+
+[node name="QuitButton" type="Button" parent="GameOverPanel" unique_id=1679479095]
+layout_mode = 0
+offset_left = 667.0
+offset_top = 450.0
+offset_right = 869.0
+offset_bottom = 487.0
+theme_override_fonts/font = ExtResource("4_qoqlk")
+theme_override_font_sizes/font_size = 25
+text = "Quit the Game"
+
+[node name="GameOverLogo" type="Sprite2D" parent="GameOverPanel" unique_id=1973902307]
+position = Vector2(594.00006, 186)
+scale = Vector2(0.29316187, 0.21720494)
+texture = ExtResource("6_7r1g0")

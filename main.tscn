@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://daf53dlih6u7h" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://db7h64cuvewmw" path="res://goblin.tscn" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
+[ext_resource type="PackedScene" uid="uid://bcmyaios7jojr" path="res://MainMenu.tscn" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://d25ec4xcarm6" path="res://mainmenu.gd" id="7_272bh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
 radius = 50.0
@@ -178,6 +180,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 128
 metadata/_edit_use_anchors_ = true
+
+[node name="MainMenu" parent="CanvasLayer" unique_id=1249432315 instance=ExtResource("6_7mycd")]
+script = ExtResource("7_272bh")
 
 [node name="TowerHealthBar" type="ProgressBar" parent="." unique_id=1576220860]
 offset_left = 200.0
