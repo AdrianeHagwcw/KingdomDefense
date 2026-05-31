@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnit81bg4742r"]
 
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://rpbo6ncicr5n" path="res://main.gd" id="1_w48qg"]
 [ext_resource type="Texture2D" uid="uid://bj6nuu08htpji" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://feugrd3blymr" path="res://Sprites-Aranda/Regular slime/Regular Slime walk 1.png" id="3_h2yge"]
@@ -11,6 +12,9 @@
 [ext_resource type="Script" uid="uid://dn8nyp0oupk40" path="res://enemy.gd" id="5_efxa6"]
 [ext_resource type="Texture2D" uid="uid://baxdx563yoqp8" path="res://Sprites-Aranda/Giant Slime/Giant Slime walk 2.png" id="6_efxa6"]
 [ext_resource type="Texture2D" uid="uid://djsecunrfatjr" path="res://Sprites-Aranda/Giant Slime/Giant Slime 3.png" id="7_dg77c"]
+[ext_resource type="PackedScene" uid="uid://bjtxdngnc7prg" path="res://main_menu.tscn" id="12_ycdy4"]
+[ext_resource type="Script" uid="uid://60rmbwuuubve" path="res://main_menu.gd" id="13_w48qg"]
+[ext_resource type="FontFile" uid="uid://gurkc5jllumg" path="res://Sprites-Aranda/Giant Slime/Kenney Future Narrow.ttf" id="15_vivmo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
 radius = 50.0
@@ -100,17 +104,21 @@ radius = 35.057095
 
 [node name="Node2D" type="Node2D" unique_id=568175097]
 position = Vector2(-174, -72)
+script = ExtResource("1_w48qg")
 
 [node name="MapBg" type="Sprite2D" parent="." unique_id=886715212]
+visible = false
 position = Vector2(752.37506, 432.375)
 scale = Vector2(0.9180622, 0.57037485)
 texture = ExtResource("1_ig7tw")
 metadata/_edit_lock_ = true
 
 [node name="StaticTower" type="StaticBody2D" parent="." unique_id=134242879 groups=["tower"]]
+visible = false
 script = ExtResource("2_272bh")
 
 [node name="Lvl1Tower" type="Sprite2D" parent="StaticTower" unique_id=1869907969]
+visible = false
 position = Vector2(751, 381.00003)
 scale = Vector2(0.24658206, 0.20214845)
 texture = ExtResource("2_0xm2m")
@@ -127,13 +135,16 @@ position = Vector2(-8, -6)
 shape = SubResource("CapsuleShape2D_h2yge")
 
 [node name="NorthPath" type="Path2D" parent="." unique_id=1086819405]
+visible = false
 curve = SubResource("Curve2D_kek77")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="NorthPath" unique_id=43251832]
+visible = false
 position = Vector2(751, 79)
 rotation = 1.5671731
 
 [node name="Enemy" type="Node2D" parent="NorthPath/PathFollow2D" unique_id=892764606]
+visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NorthPath/PathFollow2D/Enemy" unique_id=1898471945]
 sprite_frames = SubResource("SpriteFrames_4c57u")
@@ -143,27 +154,33 @@ sprite_frames = SubResource("SpriteFrames_4c57u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NorthPath/PathFollow2D/Enemy/Area2D" unique_id=103689826]
 
 [node name="SouthPath" type="Path2D" parent="." unique_id=1306671178]
+visible = false
 curve = SubResource("Curve2D_efxa6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SouthPath" unique_id=33250402]
+visible = false
 position = Vector2(754, 781)
 rotation = -1.578069
 
 [node name="Enemy" type="Node2D" parent="SouthPath/PathFollow2D" unique_id=1480244959]
+visible = false
 
 [node name="Area2D" type="Area2D" parent="SouthPath/PathFollow2D/Enemy" unique_id=451114681]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SouthPath/PathFollow2D/Enemy/Area2D" unique_id=1872660731]
 
 [node name="EastPath" type="Path2D" parent="." unique_id=1145847771]
+visible = false
 curve = SubResource("Curve2D_dg77c")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EastPath" unique_id=688243854]
+visible = false
 position = Vector2(1314, 431)
 rotation = 3.139223
 script = ExtResource("4_5vw27")
 
 [node name="Enemy" type="Node2D" parent="EastPath/PathFollow2D" unique_id=1954409603]
+visible = false
 script = ExtResource("5_efxa6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EastPath/PathFollow2D/Enemy" unique_id=1750056235]
@@ -180,14 +197,17 @@ position = Vector2(51, 4.999995)
 shape = SubResource("CircleShape2D_dg77c")
 
 [node name="WestPath" type="Path2D" parent="." unique_id=837985005]
+visible = false
 curve = SubResource("Curve2D_ycdy4")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="WestPath" unique_id=1178560822]
+visible = false
 position = Vector2(183, 430)
 rotation = 0.0022222186
 script = ExtResource("4_5vw27")
 
 [node name="Enemy" type="Node2D" parent="WestPath/PathFollow2D" unique_id=333149232]
+visible = false
 script = ExtResource("5_efxa6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WestPath/PathFollow2D/Enemy" unique_id=1329588044]
@@ -201,6 +221,38 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WestPath/PathFollow2D/Enemy/Area2D" unique_id=1119104442]
 position = Vector2(36, -1)
 shape = SubResource("CircleShape2D_ycdy4")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=81495109]
+
+[node name="MainMenu" parent="UI" unique_id=1223389856 instance=ExtResource("12_ycdy4")]
+script = ExtResource("13_w48qg")
+
+[node name="SettingsPanel" type="Control" parent="UI/MainMenu" unique_id=354082331]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CreditsPanel" type="Control" parent="UI/MainMenu" unique_id=1357881408]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI/MainMenu/CreditsPanel" unique_id=826625490]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("15_vivmo")
+theme_override_font_sizes/font_size = 40
+text = "Members: 
+Adriane Aranda, 
+Israel Basilio, 
+John Dave Sardoma, 
+Jhon Erick Villasis,
+ Ken Blue Catunao"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="EastPath/PathFollow2D/Enemy/Area2D" to="EastPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
