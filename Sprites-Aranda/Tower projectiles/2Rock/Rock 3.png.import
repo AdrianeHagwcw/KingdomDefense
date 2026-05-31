@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daf53dlih6u7h"
-path="res://.godot/imported/LVL 1 TOWER.png-ff76ce35649b76969b85340b14cbd021.ctex"
+uid="uid://dyk11dh7jb8va"
+path="res://.godot/imported/Rock 3.png-78bf7170cde0db41e5cdfd945c69cf6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites-Aranda/LVL 1 TOWER.png"
-dest_files=["res://.godot/imported/LVL 1 TOWER.png-ff76ce35649b76969b85340b14cbd021.ctex"]
+source_file="res://Sprites-Aranda/Tower projectiles/2Rock/Rock 3.png"
+dest_files=["res://.godot/imported/Rock 3.png-78bf7170cde0db41e5cdfd945c69cf6d.ctex"]
 
 [params]
 

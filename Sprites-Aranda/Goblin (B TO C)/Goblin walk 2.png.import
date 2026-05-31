@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daf53dlih6u7h"
-path="res://.godot/imported/LVL 1 TOWER.png-ff76ce35649b76969b85340b14cbd021.ctex"
+uid="uid://dgm7uk1yncipy"
+path="res://.godot/imported/Goblin walk 2.png-c5611ed2bdfaa4564f1a4001da693af5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites-Aranda/LVL 1 TOWER.png"
-dest_files=["res://.godot/imported/LVL 1 TOWER.png-ff76ce35649b76969b85340b14cbd021.ctex"]
+source_file="res://Sprites-Aranda/Goblin (B TO C)/Goblin walk 2.png"
+dest_files=["res://.godot/imported/Goblin walk 2.png-c5611ed2bdfaa4564f1a4001da693af5.ctex"]
 
 [params]
 

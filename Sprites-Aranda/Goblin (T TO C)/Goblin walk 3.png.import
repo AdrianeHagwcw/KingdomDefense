@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be5l8vb4jywm1"
-path="res://.godot/imported/Regular Slime walk 2.png-a0361b764d5abd1fe8232c4b380bd56d.ctex"
+uid="uid://bfls5dksbx5y2"
+path="res://.godot/imported/Goblin walk 3.png-75400d54c1957cab765e0622661ca372.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites-Aranda/Regular slime/Regular Slime walk 2.png"
-dest_files=["res://.godot/imported/Regular Slime walk 2.png-a0361b764d5abd1fe8232c4b380bd56d.ctex"]
+source_file="res://Sprites-Aranda/Goblin (T TO C)/Goblin walk 3.png"
+dest_files=["res://.godot/imported/Goblin walk 3.png-75400d54c1957cab765e0622661ca372.ctex"]
 
 [params]
 

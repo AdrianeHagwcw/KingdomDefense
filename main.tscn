@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bnit81bg4742r"]
 
+[ext_resource type="Script" uid="uid://rpbo6ncicr5n" path="res://main.gd" id="1_074og"]
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://rpbo6ncicr5n" path="res://main.gd" id="1_w48qg"]
 [ext_resource type="Texture2D" uid="uid://bj6nuu08htpji" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
@@ -15,22 +17,19 @@
 [ext_resource type="PackedScene" uid="uid://bjtxdngnc7prg" path="res://main_menu.tscn" id="12_ycdy4"]
 [ext_resource type="Script" uid="uid://60rmbwuuubve" path="res://main_menu.gd" id="13_w48qg"]
 [ext_resource type="FontFile" uid="uid://gurkc5jllumg" path="res://Sprites-Aranda/Giant Slime/Kenney Future Narrow.ttf" id="15_vivmo"]
+=======
+[ext_resource type="Texture2D" uid="uid://daf53dlih6u7h" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://db7h64cuvewmw" path="res://goblin.tscn" id="2_7mycd"]
+[ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
+>>>>>>> main
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
 radius = 50.0
 height = 100.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
-radius = 77.0
-height = 154.0
-
-[sub_resource type="Curve2D" id="Curve2D_kek77"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 751, 79, 0, 0, 0, 0, 752, 355)
-}
-point_count = 2
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
+radius = 86.0
+height = 172.0
 
 [sub_resource type="Curve2D" id="Curve2D_efxa6"]
 _data = {
@@ -44,67 +43,71 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ycdy4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_4c57u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_efxa6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_dg77c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_efxa6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_4c57u")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dg77c"]
-radius = 65.99994
-
 [sub_resource type="Curve2D" id="Curve2D_ycdy4"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 183, 430, 0, 0, 0, 0, 633, 431)
 }
 point_count = 2
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_w48qg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_h2yge")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_lquwl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_7mycd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_lquwl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_h2yge")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[sub_resource type="Curve2D" id="Curve2D_kek77"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 751, 79, 0, 0, 0, 0, 752, 355)
+}
+point_count = 2
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ycdy4"]
-radius = 35.057095
+[sub_resource type="GDScript" id="GDScript_lquwl"]
+script/source = "extends Node2D
+
+signal reached_tower
+
+@export var speed: float = 100.0
+
+func _ready():
+
+	if has_node(\"AnimatedSprite2D\"):
+		$AnimatedSprite2D.play(\"walk\")
+
+func _process(delta):
+
+	var parent = get_parent()
+
+	if parent is PathFollow2D:
+		parent.progress += speed * delta
+
+func _on_area_2d_area_entered(area):
+
+	print(\"Enemy touched:\", area.name)
+
+	if area.is_in_group(\"tower\"):
+
+		print(\"Reached tower!\")
+
+		var tower = get_tree().get_first_node_in_group(\"tower\")
+
+		if tower:
+			tower.take_damage(10)
+
+		queue_free()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
+bg_color = Color(0.048234254, 0.16447926, 0.13391936, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegan"]
+bg_color = Color(0.24171454, 0.24560302, 0.2472673, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82xsv"]
+bg_color = Color(0.45434064, 0.037099008, 0.09871092, 1)
 
 [node name="Node2D" type="Node2D" unique_id=568175097]
 position = Vector2(-174, -72)
+<<<<<<< HEAD
 script = ExtResource("1_w48qg")
+=======
+script = ExtResource("1_074og")
+north_enemy = ExtResource("2_7mycd")
+metadata/_edit_lock_ = true
+>>>>>>> main
 
 [node name="MapBg" type="Sprite2D" parent="." unique_id=886715212]
 visible = false
@@ -116,14 +119,20 @@ metadata/_edit_lock_ = true
 [node name="StaticTower" type="StaticBody2D" parent="." unique_id=134242879 groups=["tower"]]
 visible = false
 script = ExtResource("2_272bh")
+metadata/_edit_lock_ = true
 
 [node name="Lvl1Tower" type="Sprite2D" parent="StaticTower" unique_id=1869907969]
+<<<<<<< HEAD
 visible = false
+=======
+z_index = 1
+>>>>>>> main
 position = Vector2(751, 381.00003)
 scale = Vector2(0.24658206, 0.20214845)
 texture = ExtResource("2_0xm2m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower" unique_id=751824907]
+z_index = 1
 position = Vector2(751, 419)
 shape = SubResource("CapsuleShape2D_0xm2m")
 
@@ -131,9 +140,11 @@ shape = SubResource("CapsuleShape2D_0xm2m")
 position = Vector2(759, 438)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower/Area2D" unique_id=1656790329]
-position = Vector2(-8, -6)
+z_index = 1
+position = Vector2(-7, -6)
 shape = SubResource("CapsuleShape2D_h2yge")
 
+<<<<<<< HEAD
 [node name="NorthPath" type="Path2D" parent="." unique_id=1086819405]
 visible = false
 curve = SubResource("Curve2D_kek77")
@@ -153,6 +164,8 @@ sprite_frames = SubResource("SpriteFrames_4c57u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NorthPath/PathFollow2D/Enemy/Area2D" unique_id=103689826]
 
+=======
+>>>>>>> main
 [node name="SouthPath" type="Path2D" parent="." unique_id=1306671178]
 visible = false
 curve = SubResource("Curve2D_efxa6")
@@ -162,6 +175,7 @@ visible = false
 position = Vector2(754, 781)
 rotation = -1.578069
 
+<<<<<<< HEAD
 [node name="Enemy" type="Node2D" parent="SouthPath/PathFollow2D" unique_id=1480244959]
 visible = false
 
@@ -169,6 +183,8 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SouthPath/PathFollow2D/Enemy/Area2D" unique_id=1872660731]
 
+=======
+>>>>>>> main
 [node name="EastPath" type="Path2D" parent="." unique_id=1145847771]
 visible = false
 curve = SubResource("Curve2D_dg77c")
@@ -177,6 +193,7 @@ curve = SubResource("Curve2D_dg77c")
 visible = false
 position = Vector2(1314, 431)
 rotation = 3.139223
+<<<<<<< HEAD
 script = ExtResource("4_5vw27")
 
 [node name="Enemy" type="Node2D" parent="EastPath/PathFollow2D" unique_id=1954409603]
@@ -195,6 +212,8 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EastPath/PathFollow2D/Enemy/Area2D" unique_id=1190778493]
 position = Vector2(51, 4.999995)
 shape = SubResource("CircleShape2D_dg77c")
+=======
+>>>>>>> main
 
 [node name="WestPath" type="Path2D" parent="." unique_id=837985005]
 visible = false
@@ -204,24 +223,37 @@ curve = SubResource("Curve2D_ycdy4")
 visible = false
 position = Vector2(183, 430)
 rotation = 0.0022222186
-script = ExtResource("4_5vw27")
 
+<<<<<<< HEAD
 [node name="Enemy" type="Node2D" parent="WestPath/PathFollow2D" unique_id=333149232]
 visible = false
 script = ExtResource("5_efxa6")
+=======
+[node name="NorthPath" type="Path2D" parent="." unique_id=2021140099]
+curve = SubResource("Curve2D_kek77")
+>>>>>>> main
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WestPath/PathFollow2D/Enemy" unique_id=1329588044]
-position = Vector2(36.531254, 1.0624933)
-scale = Vector2(0.17715721, 0.15664059)
-sprite_frames = SubResource("SpriteFrames_w48qg")
-animation = &"walk"
+[node name="PathFollow2D" type="PathFollow2D" parent="NorthPath" unique_id=1025050271]
+position = Vector2(751, 79)
+rotation = 1.5671731
+script = SubResource("GDScript_lquwl")
 
-[node name="Area2D" type="Area2D" parent="WestPath/PathFollow2D/Enemy" unique_id=1429182038]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1108670367]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WestPath/PathFollow2D/Enemy/Area2D" unique_id=1119104442]
-position = Vector2(36, -1)
-shape = SubResource("CircleShape2D_ycdy4")
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1294256945]
+anchors_preset = -1
+anchor_left = 0.036000002
+anchor_top = 0.037
+anchor_right = 0.209
+anchor_bottom = 0.093
+offset_left = 0.52799606
+offset_top = 0.3600006
+offset_right = 0.23199463
+offset_bottom = 0.040000916
+theme_override_styles/panel = SubResource("StyleBoxFlat_074og")
+metadata/_edit_use_anchors_ = true
 
+<<<<<<< HEAD
 [node name="UI" type="CanvasLayer" parent="." unique_id=81495109]
 
 [node name="MainMenu" parent="UI" unique_id=1223389856 instance=ExtResource("12_ycdy4")]
@@ -257,3 +289,43 @@ vertical_alignment = 1
 [connection signal="body_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="EastPath/PathFollow2D/Enemy/Area2D" to="EastPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="WestPath/PathFollow2D/Enemy/Area2D" to="WestPath/PathFollow2D/Enemy" method="_on_area_2d_area_entered"]
+=======
+[node name="TimerLabel" type="Label" parent="CanvasLayer/Panel" unique_id=366530867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 1.0
+offset_right = -11.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Time -  00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+metadata/_edit_use_anchors_ = true
+
+[node name="TowerHealthBar" type="ProgressBar" parent="." unique_id=1576220860]
+offset_left = 200.0
+offset_top = 747.0
+offset_right = 577.0
+offset_bottom = 773.0
+theme_override_styles/background = SubResource("StyleBoxFlat_cegan")
+theme_override_styles/fill = SubResource("StyleBoxFlat_82xsv")
+value = 100.0
+show_percentage = false
+
+[node name="TowerHealthLabel" type="Label" parent="." unique_id=1226160412]
+offset_left = 263.0
+offset_top = 716.0
+offset_right = 493.0
+offset_bottom = 750.0
+text = "Tower HP: 100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_area_entered"]
+>>>>>>> main

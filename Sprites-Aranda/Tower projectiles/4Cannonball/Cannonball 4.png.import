@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daf53dlih6u7h"
-path="res://.godot/imported/LVL 1 TOWER.png-ff76ce35649b76969b85340b14cbd021.ctex"
+uid="uid://ruu3o5iirj4w"
+path="res://.godot/imported/Cannonball 4.png-7059ec124655bbe92486eb35783a9b10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites-Aranda/LVL 1 TOWER.png"
-dest_files=["res://.godot/imported/LVL 1 TOWER.png-ff76ce35649b76969b85340b14cbd021.ctex"]
+source_file="res://Sprites-Aranda/Tower projectiles/4Cannonball/Cannonball 4.png"
+dest_files=["res://.godot/imported/Cannonball 4.png-7059ec124655bbe92486eb35783a9b10.ctex"]
 
 [params]
 

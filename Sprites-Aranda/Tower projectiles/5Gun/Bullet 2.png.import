@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daf53dlih6u7h"
-path="res://.godot/imported/LVL 1 TOWER.png-ff76ce35649b76969b85340b14cbd021.ctex"
+uid="uid://nf5msahf5351"
+path="res://.godot/imported/Bullet 2.png-df54cf3fea985686b62b02768df1909d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites-Aranda/LVL 1 TOWER.png"
-dest_files=["res://.godot/imported/LVL 1 TOWER.png-ff76ce35649b76969b85340b14cbd021.ctex"]
+source_file="res://Sprites-Aranda/Tower projectiles/5Gun/Bullet 2.png"
+dest_files=["res://.godot/imported/Bullet 2.png-df54cf3fea985686b62b02768df1909d.ctex"]
 
 [params]
 
