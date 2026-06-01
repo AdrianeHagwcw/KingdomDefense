@@ -37,7 +37,7 @@ script = ExtResource("1_iifgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=707755712]
 position = Vector2(3, 1.0000001)
-rotation = 0.02661175
+rotation = -0.007508993
 scale = Vector2(0.58745986, 0.5466699)
 sprite_frames = SubResource("SpriteFrames_d13ii")
 animation = &"walk"

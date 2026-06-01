@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://daf53dlih6u7h" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://db7h64cuvewmw" path="res://goblin.tscn" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
+[ext_resource type="Script" uid="uid://b1uvt0yrxkdyq" path="res://path_follow_2d.gd" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bcmyaios7jojr" path="res://MainMenu.tscn" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://d25ec4xcarm6" path="res://mainmenu.gd" id="7_272bh"]
 
@@ -130,6 +131,7 @@ curve = SubResource("Curve2D_dg77c")
 [node name="PathFollow2D" type="PathFollow2D" parent="EastPath" unique_id=688243854]
 position = Vector2(1314, 431)
 rotation = 3.139223
+script = ExtResource("6_5vw27")
 
 [node name="WestPath" type="Path2D" parent="." unique_id=837985005]
 curve = SubResource("Curve2D_ycdy4")
