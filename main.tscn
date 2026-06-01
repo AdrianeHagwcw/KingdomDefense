@@ -5,17 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://daf53dlih6u7h" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://db7h64cuvewmw" path="res://goblin.tscn" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
+[ext_resource type="PackedScene" uid="uid://dmm5rilv6c2m6" path="res://projectiles.tscn" id="5_kek77"]
 [ext_resource type="Script" uid="uid://b1uvt0yrxkdyq" path="res://path_follow_2d.gd" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bcmyaios7jojr" path="res://MainMenu.tscn" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://d25ec4xcarm6" path="res://mainmenu.gd" id="7_272bh"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
-radius = 50.0
-height = 100.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4c57u"]
+radius = 59.0
+height = 140.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
-radius = 86.0
-height = 172.0
+radius = 172.0
+height = 344.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kek77"]
+radius = 72.0
+height = 144.0
 
 [sub_resource type="Curve2D" id="Curve2D_efxa6"]
 _data = {
@@ -96,7 +101,9 @@ texture = ExtResource("1_ig7tw")
 metadata/_edit_lock_ = true
 
 [node name="StaticTower" type="StaticBody2D" parent="." unique_id=134242879 groups=["tower"]]
+z_index = 1
 script = ExtResource("2_272bh")
+projectile_scene = ExtResource("5_kek77")
 metadata/_edit_lock_ = true
 
 [node name="Lvl1Tower" type="Sprite2D" parent="StaticTower" unique_id=1869907969]
@@ -105,18 +112,29 @@ position = Vector2(751, 381.00003)
 scale = Vector2(0.24658206, 0.20214845)
 texture = ExtResource("2_0xm2m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower" unique_id=751824907]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower" unique_id=270172264]
 z_index = 1
-position = Vector2(751, 419)
-shape = SubResource("CapsuleShape2D_0xm2m")
+position = Vector2(751, 409)
+shape = SubResource("CapsuleShape2D_4c57u")
 
-[node name="Area2D" type="Area2D" parent="StaticTower" unique_id=733018711]
+[node name="AttackRange" type="Area2D" parent="StaticTower" unique_id=733018711]
 position = Vector2(759, 438)
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower/Area2D" unique_id=1656790329]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower/AttackRange" unique_id=1656790329]
 z_index = 1
-position = Vector2(-7, -6)
+position = Vector2(-7, -24)
 shape = SubResource("CapsuleShape2D_h2yge")
+
+[node name="Hitbox" type="Area2D" parent="StaticTower" unique_id=1456813145]
+position = Vector2(752, 407)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticTower/Hitbox" unique_id=1115130625]
+z_index = 1
+position = Vector2(1, 8)
+shape = SubResource("CapsuleShape2D_kek77")
 
 [node name="SouthPath" type="Path2D" parent="." unique_id=1306671178]
 curve = SubResource("Curve2D_efxa6")
@@ -203,4 +221,4 @@ text = "Tower HP: 100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="area_entered" from="StaticTower/Area2D" to="StaticTower" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="StaticTower/AttackRange" to="StaticTower" method="_on_area_2d_area_entered"]

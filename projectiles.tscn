@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dmm5rilv6c2m6"]
+
+[ext_resource type="Script" uid="uid://bg3s0eenu5iqa" path="res://projectiles.gd" id="1_g61kk"]
+[ext_resource type="Texture2D" uid="uid://0yjt33rl1kxr" path="res://Sprites-Aranda/Tower projectiles/2Rock/Rock 1.png" id="2_cc1g7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_btolk"]
+radius = 15.556274
+height = 32.544983
+
+[sub_resource type="Animation" id="Animation_5txyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2fuvr"]
+resource_name = "fly"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_plmyp"]
+_data = {
+&"RESET": SubResource("Animation_5txyr"),
+&"fly": SubResource("Animation_2fuvr")
+}
+
+[node name="Projectile" type="Area2D" unique_id=394206424]
+position = Vector2(576, 317)
+script = ExtResource("1_g61kk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1052886105]
+position = Vector2(-1, 0)
+scale = Vector2(0.3287032, 0.37719297)
+texture = ExtResource("2_cc1g7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020987832]
+position = Vector2(-0.99993896, 1)
+rotation = 0.7897276
+shape = SubResource("CapsuleShape2D_btolk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1871363691]
+libraries/ = SubResource("AnimationLibrary_plmyp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
