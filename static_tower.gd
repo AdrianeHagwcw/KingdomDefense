@@ -5,7 +5,7 @@ signal tower_destroyed
 @export var projectile_scene: PackedScene
 @export var attack_range = 850.0
 @export var attack_speed = 1.0
-@export var projectile_damage = 10
+@export var projectile_damage = 5
 
 var max_health = 100
 var health = 100
