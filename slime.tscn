@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b2nuat8k54pdg"]
+
+[ext_resource type="Script" uid="uid://dn8nyp0oupk40" path="res://enemy.gd" id="1_ppcr1"]
+[ext_resource type="Texture2D" uid="uid://feugrd3blymr" path="res://Sprites-Aranda/Regular slime (L TO C)/Regular Slime walk 1.png" id="2_jayke"]
+[ext_resource type="Texture2D" uid="uid://be5l8vb4jywm1" path="res://Sprites-Aranda/Regular slime (L TO C)/Regular Slime walk 2.png" id="3_2002g"]
+[ext_resource type="Texture2D" uid="uid://diwyysfdutm0v" path="res://Sprites-Aranda/Regular slime (L TO C)/Regular Slime walk 3.png" id="4_bratd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5b0gg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jayke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2002g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bratd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2002g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jayke")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_da4t2"]
+radius = 34.0
+height = 68.0
+
+[node name="Enemy" type="Node2D" unique_id=2128336674 groups=["enemy"]]
+script = ExtResource("1_ppcr1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1791338627]
+position = Vector2(0.31249177, 0.24999905)
+scale = Vector2(0.17346337, 0.1828125)
+sprite_frames = SubResource("SpriteFrames_5b0gg")
+animation = &"walk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1931700966]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=917024883]
+position = Vector2(2, -1)
+shape = SubResource("CapsuleShape2D_da4t2")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

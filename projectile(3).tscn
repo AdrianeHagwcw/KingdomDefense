@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cjjk16i6w8sas"]
+
+[ext_resource type="Script" uid="uid://bg3s0eenu5iqa" path="res://projectiles.gd" id="1_530hv"]
+[ext_resource type="Texture2D" uid="uid://c8upwyu0bxnfp" path="res://Sprites-Aranda/Tower projectiles/4Cannonball/Cannonball 3.png" id="2_yhhnu"]
+
+[sub_resource type="Animation" id="Animation_veiw7"]
+resource_name = "spead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nif6m"]
+_data = {
+&"spead": SubResource("Animation_veiw7")
+}
+
+[node name="Projectile" type="Area2D" unique_id=435786056]
+script = ExtResource("1_530hv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1048985890]
+position = Vector2(6, -1.000001)
+scale = Vector2(0.65384614, 0.6803279)
+texture = ExtResource("2_yhhnu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785946629]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=945301159]
+libraries/ = SubResource("AnimationLibrary_nif6m")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,8 +1,8 @@
 extends Area2D
 
-@export var speed = 400.0
+@export var speed = 800.0
 var target = null
-var damage = 10
+var damage = 50
 
 func _process(delta):
 	if target == null or !is_instance_valid(target):
@@ -19,3 +19,7 @@ func _process(delta):
 		if target.has_method("take_damage"):
 			target.take_damage(damage)
 		queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

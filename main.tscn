@@ -5,32 +5,40 @@
 [ext_resource type="Texture2D" uid="uid://daf53dlih6u7h" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://db7h64cuvewmw" path="res://goblin.tscn" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://do6vte317awft" path="res://static_tower.gd" id="2_272bh"]
+[ext_resource type="PackedScene" uid="uid://djeofcdwnr063" path="res://giantslime.tscn" id="3_4c57u"]
+[ext_resource type="PackedScene" uid="uid://b2nuat8k54pdg" path="res://slime.tscn" id="3_efxa6"]
+[ext_resource type="PackedScene" uid="uid://3kqvr4ga3qfl" path="res://goblin(2).tscn" id="4_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dmm5rilv6c2m6" path="res://projectiles.tscn" id="5_kek77"]
-[ext_resource type="Script" uid="uid://b1uvt0yrxkdyq" path="res://path_follow_2d.gd" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bcmyaios7jojr" path="res://MainMenu.tscn" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://d25ec4xcarm6" path="res://mainmenu.gd" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://dn6wv1dw5c7q3" path="res://projectile(2).tscn" id="8_dg77c"]
+[ext_resource type="PackedScene" uid="uid://cjjk16i6w8sas" path="res://projectile(3).tscn" id="10_w48qg"]
+[ext_resource type="Texture2D" uid="uid://bti08xdyr0fch" path="res://Sprites-Aranda/LVL 5 TOWER.png" id="11_yaehf"]
+[ext_resource type="Script" uid="uid://b1uvt0yrxkdyq" path="res://path_follow_2d.gd" id="11_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://cswbdcghoterd" path="res://Sprites-Aranda/LVL 3 TOWER.png" id="12_074og"]
+[ext_resource type="Texture2D" uid="uid://dtltb1nlrjsr1" path="res://Sprites-Aranda/LVL 2 TOWER.png" id="13_cegan"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4c57u"]
-radius = 59.0
-height = 140.0
+radius = 16.0
+height = 32.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2yge"]
-radius = 172.0
-height = 344.0
+radius = 225.0
+height = 450.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kek77"]
-radius = 72.0
-height = 144.0
+radius = 61.0
+height = 136.0
 
 [sub_resource type="Curve2D" id="Curve2D_efxa6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 754, 781, 0, 0, 0, 0, 752, 506)
+"points": PackedVector2Array(0, 0, 0, 0, 754, 781, 0, 0, 0, 0, 753, 494)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_dg77c"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1314, 431, 0, 0, 0, 0, 892, 432)
+"points": PackedVector2Array(0, 0, 0, 0, 1314, 431, 0, 0, 0, 0, 864, 432)
 }
 point_count = 2
 
@@ -46,41 +54,19 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="GDScript" id="GDScript_lquwl"]
-script/source = "extends Node2D
-
-@export var speed: float = 100.0
-
-func _ready():
-
-	if has_node(\"AnimatedSprite2D\"):
-		$AnimatedSprite2D.play(\"walk\")
-
-func _process(delta):
-
-	var parent = get_parent()
-
-	if parent is PathFollow2D:
-		parent.progress += speed * delta
-
-func _on_area_2d_area_entered(area):
-
-	print(\"Enemy touched:\", area.name)
-
-	if area.is_in_group(\"tower\"):
-
-		print(\"Reached tower!\")
-
-		var tower = get_tree().get_first_node_in_group(\"tower\")
-
-		if tower:
-			tower.take_damage(10)
-
-		queue_free()
-"
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
 bg_color = Color(0.048234254, 0.16447926, 0.13391936, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
+bg_color = Color(0.73406494, 0.514892, 1.1551381e-06, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cegan"]
 bg_color = Color(0.24171454, 0.24560302, 0.2472673, 1)
@@ -92,6 +78,9 @@ bg_color = Color(0.45434064, 0.037099008, 0.09871092, 1)
 position = Vector2(-174, -72)
 script = ExtResource("1_074og")
 north_enemy = ExtResource("2_7mycd")
+west_enemy = ExtResource("3_efxa6")
+east_enemy = ExtResource("3_4c57u")
+south_enemy = ExtResource("4_efxa6")
 metadata/_edit_lock_ = true
 
 [node name="MapBg" type="Sprite2D" parent="." unique_id=886715212]
@@ -103,8 +92,28 @@ metadata/_edit_lock_ = true
 [node name="StaticTower" type="StaticBody2D" parent="." unique_id=134242879 groups=["tower"]]
 z_index = 1
 script = ExtResource("2_272bh")
-projectile_scene = ExtResource("5_kek77")
+projectile_scene_lv1 = ExtResource("8_dg77c")
+projectile_scene_lv2 = ExtResource("5_kek77")
+projectile_scene_lv3 = ExtResource("10_w48qg")
 metadata/_edit_lock_ = true
+
+[node name="Lvl4Tower" type="Sprite2D" parent="StaticTower" unique_id=101929261]
+visible = false
+position = Vector2(754, 380)
+scale = Vector2(0.4006174, 0.296875)
+texture = ExtResource("11_yaehf")
+
+[node name="Lvl3Tower" type="Sprite2D" parent="StaticTower" unique_id=1506626828]
+visible = false
+position = Vector2(754, 401.5)
+scale = Vector2(0.3965517, 0.2548828)
+texture = ExtResource("12_074og")
+
+[node name="Lvl2Tower" type="Sprite2D" parent="StaticTower" unique_id=1848566710]
+visible = false
+position = Vector2(759, 390)
+scale = Vector2(0.34703034, 0.2697754)
+texture = ExtResource("13_cegan")
 
 [node name="Lvl1Tower" type="Sprite2D" parent="StaticTower" unique_id=1869907969]
 z_index = 1
@@ -141,15 +150,16 @@ curve = SubResource("Curve2D_efxa6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SouthPath" unique_id=33250402]
 position = Vector2(754, 781)
-rotation = -1.578069
+rotation = -1.5742806
+script = ExtResource("11_ycdy4")
 
 [node name="EastPath" type="Path2D" parent="." unique_id=1145847771]
 curve = SubResource("Curve2D_dg77c")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EastPath" unique_id=688243854]
 position = Vector2(1314, 431)
-rotation = 3.139223
-script = ExtResource("6_5vw27")
+rotation = 3.1393704
+script = ExtResource("11_ycdy4")
 
 [node name="WestPath" type="Path2D" parent="." unique_id=837985005]
 curve = SubResource("Curve2D_ycdy4")
@@ -157,6 +167,7 @@ curve = SubResource("Curve2D_ycdy4")
 [node name="PathFollow2D" type="PathFollow2D" parent="WestPath" unique_id=1178560822]
 position = Vector2(183, 430)
 rotation = 0.0022222186
+script = ExtResource("11_ycdy4")
 
 [node name="NorthPath" type="Path2D" parent="." unique_id=2021140099]
 curve = SubResource("Curve2D_kek77")
@@ -164,7 +175,7 @@ curve = SubResource("Curve2D_kek77")
 [node name="PathFollow2D" type="PathFollow2D" parent="NorthPath" unique_id=1025050271]
 position = Vector2(751, 79)
 rotation = 1.5671731
-script = SubResource("GDScript_lquwl")
+script = ExtResource("11_ycdy4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1108670367]
 
@@ -199,7 +210,48 @@ vertical_alignment = 1
 autowrap_trim_flags = 128
 metadata/_edit_use_anchors_ = true
 
+[node name="GoldLabel" type="Label" parent="CanvasLayer/Panel" unique_id=1960241062]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.125
+anchor_right = 0.337
+anchor_bottom = 1.825
+offset_left = 5.0
+offset_right = -0.06300354
+text = "Gold: 0"
+
+[node name="TowerLevelLabel" type="Label" parent="CanvasLayer/Panel" unique_id=899603655]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 69.0
+offset_right = 164.0
+offset_bottom = 92.0
+text = "Wooden Tower [Lv 1]"
+
+[node name="UpgradeButton" type="Button" parent="CanvasLayer/Panel" unique_id=617596508]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.603
+anchor_top = 14.900001
+anchor_right = 5.4370003
+anchor_bottom = 16.425001
+offset_left = 0.0029907227
+offset_right = 0.036987305
+offset_bottom = -6.1035156e-05
+theme_override_colors/font_color = Color(0.00030996054, 5.5324454e-05, 1.7626008e-11, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.03529412, 1)
+theme_override_colors/font_hover_color = Color(0.6572314, 0.4856506, 0.06150128, 1)
+theme_override_colors/font_disabled_color = Color(0.20870978, 0.20871034, 0.20870996, 0.5019608)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_yaehf")
+text = "Upgrade (50 Gold)"
+
 [node name="MainMenu" parent="CanvasLayer" unique_id=1249432315 instance=ExtResource("6_7mycd")]
+visible = false
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 3.0
+offset_bottom = 5.0
 script = ExtResource("7_272bh")
 
 [node name="TowerHealthBar" type="ProgressBar" parent="." unique_id=1576220860]

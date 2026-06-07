@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dn6wv1dw5c7q3"]
+
+[ext_resource type="Script" uid="uid://bg3s0eenu5iqa" path="res://projectiles.gd" id="1_libu8"]
+[ext_resource type="Texture2D" uid="uid://bq87fxcevsi72" path="res://Sprites-Aranda/Tower projectiles/1Arrow/Arrow 2.png" id="2_libu8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wa3nf"]
+radius = 36.0
+height = 74.0
+
+[sub_resource type="Animation" id="Animation_ds1ss"]
+resource_name = "arrow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eq11s"]
+_data = {
+&"arrow": SubResource("Animation_ds1ss")
+}
+
+[node name="Projectile" type="Area2D" unique_id=1978435364]
+position = Vector2(581, 323)
+script = ExtResource("1_libu8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=708298804]
+texture = ExtResource("2_libu8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603533921]
+shape = SubResource("CapsuleShape2D_wa3nf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=469053102]
+libraries/ = SubResource("AnimationLibrary_eq11s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
