@@ -15,6 +15,7 @@ extends Node2D
 @onready var tower_health_bar = $TowerHealthBar
 @onready var tower_health_label = $TowerHealthLabel
 @onready var tower = $StaticTower
+@onready var difficulty_label = $CanvasLayer/Panel/DifficultyLabel
 
 # NEW: Gold and upgrade UI — add these 3 nodes inside CanvasLayer/Panel in the editor
 @onready var gold_label = $CanvasLayer/Panel/GoldLabel
@@ -30,6 +31,7 @@ var timer_started = false
 var game_started = false
 var spawn_loops_started = false
 var gold: int = 0                          # NEW
+var difficulty_multiplier = 1.0
 
 func _ready():
 	main_menu.start_game_pressed.connect(start_game)
@@ -47,9 +49,14 @@ func _ready():
 func _process(delta):
 	if not game_started:
 		return
+
 	if timer_started:
 		elapsed_time += delta
 		update_timer_label()
+
+		# Increase difficulty every minute
+		difficulty_multiplier = 1.0 + (elapsed_time / 60.0) * 0.50
+		difficulty_label.text = "Difficulty: %.1fx" % difficulty_multiplier
 
 func start_game():
 	clear_enemies()
@@ -121,7 +128,8 @@ func set_hud_visible(value: bool):
 	gold_label.visible = value             # NEW
 	upgrade_button.visible = value         # NEW
 	tower_level_label.visible = value      # NEW
-
+	difficulty_label.visible = value
+	
 # ── Timer ──────────────────────────────────────────────────────────────────────
 
 func update_timer_label():
@@ -143,39 +151,59 @@ func start_spawn_loops_once():
 
 func start_north():
 	while true:
-		await get_tree().create_timer(3.0).timeout
+		var spawn_time = max(1.0, 5.0 / difficulty_multiplier)
+		await get_tree().create_timer(spawn_time).timeout
+
 		if game_started and north_enemy != null:
 			spawn_enemy(north_path, north_enemy)
 
 func start_west():
 	while true:
-		await get_tree().create_timer(4.0).timeout
+		var spawn_time = max(1.0, 6.0 / difficulty_multiplier)
+		await get_tree().create_timer(spawn_time).timeout
+
 		if game_started and west_enemy != null:
 			spawn_enemy(west_path, west_enemy)
 
 func start_east():
 	while true:
-		await get_tree().create_timer(5.0).timeout
+		var spawn_time = max(1.0, 7.0 / difficulty_multiplier)
+		await get_tree().create_timer(spawn_time).timeout
+
 		if game_started and east_enemy != null:
 			spawn_enemy(east_path, east_enemy)
 
 func start_south():
 	while true:
-		await get_tree().create_timer(6.0).timeout
+		var spawn_time = max(1.0, 8.0 / difficulty_multiplier)
+		await get_tree().create_timer(spawn_time).timeout
+
 		if game_started and south_enemy != null:
 			spawn_enemy(south_path, south_enemy)
 
 func spawn_enemy(path: Path2D, enemy_scene: PackedScene):
-	if not game_started or enemy_scene == null or path == null:
+	if not game_started:
 		return
+
 	var path_follow = PathFollow2D.new()
 	path_follow.loop = false
 	path_follow.rotates = false
+
 	path.add_child(path_follow)
+
 	var enemy = enemy_scene.instantiate()
 	path_follow.add_child(enemy)
+
 	enemy.position = Vector2.ZERO
-	# NEW: connect this enemy's death signal so dropping gold works
+
+	# Difficulty scaling
+	enemy.speed *= difficulty_multiplier
+
+	enemy.max_health = int(enemy.max_health * difficulty_multiplier)
+	enemy.health = enemy.max_health
+
+	enemy.gold_reward = int(enemy.gold_reward * difficulty_multiplier)
+
 	enemy.died.connect(add_gold)
 
 func clear_enemies():

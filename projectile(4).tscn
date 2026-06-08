@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://biqm6kkd5twmd"]
+
+[ext_resource type="Script" uid="uid://bg3s0eenu5iqa" path="res://projectiles.gd" id="1_ypnjb"]
+[ext_resource type="Texture2D" uid="uid://wy26cj2dqapc" path="res://Sprites-Aranda/Tower projectiles/4Cannonball/Cannonball 2.png" id="2_6hwwb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ie57g"]
+radius = 29.872862
+height = 102.0
+
+[sub_resource type="Animation" id="Animation_oc0b2"]
+resource_name = "cannon"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5sns3"]
+_data = {
+&"cannon": SubResource("Animation_oc0b2")
+}
+
+[node name="Projectile" type="Area2D" unique_id=283299171]
+script = ExtResource("1_ypnjb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1252047639]
+texture = ExtResource("2_6hwwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=814809557]
+position = Vector2(-4, 1)
+rotation = 1.6353992
+shape = SubResource("CapsuleShape2D_ie57g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1281514125]
+libraries/ = SubResource("AnimationLibrary_5sns3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

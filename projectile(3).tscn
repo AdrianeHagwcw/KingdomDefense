@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://cjjk16i6w8sas"]
 
 [ext_resource type="Script" uid="uid://bg3s0eenu5iqa" path="res://projectiles.gd" id="1_530hv"]
-[ext_resource type="Texture2D" uid="uid://c8upwyu0bxnfp" path="res://Sprites-Aranda/Tower projectiles/4Cannonball/Cannonball 3.png" id="2_yhhnu"]
+[ext_resource type="Texture2D" uid="uid://7151pyunnxnd" path="res://Sprites-Aranda/Tower projectiles/3Spear/Spear 1.png" id="2_530hv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yhhnu"]
+radius = 7.9897156
+height = 109.9552
 
 [sub_resource type="Animation" id="Animation_veiw7"]
 resource_name = "spead"
@@ -24,14 +28,20 @@ _data = {
 }
 
 [node name="Projectile" type="Area2D" unique_id=435786056]
+position = Vector2(58, 32)
+rotation = 0.020279737
 script = ExtResource("1_530hv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1048985890]
-position = Vector2(6, -1.000001)
-scale = Vector2(0.65384614, 0.6803279)
-texture = ExtResource("2_yhhnu")
+position = Vector2(-53.74671, -30.680786)
+rotation = 1.2228801
+scale = Vector2(0.20049855, 0.5973547)
+texture = ExtResource("2_530hv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785946629]
+position = Vector2(-50.74726, -30.741623)
+rotation = 1.540651
+shape = SubResource("CapsuleShape2D_yhhnu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=945301159]
 libraries/ = SubResource("AnimationLibrary_nif6m")
