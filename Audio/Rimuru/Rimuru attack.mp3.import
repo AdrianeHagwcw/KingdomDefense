@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbd1f3w2xvro7"
+path="res://.godot/imported/Rimuru attack.mp3-41de7af5ade8b371c64713f164a7c2a1.mp3str"
+
+[deps]
+
+source_file="res://Audio/Rimuru/Rimuru attack.mp3"
+dest_files=["res://.godot/imported/Rimuru attack.mp3-41de7af5ade8b371c64713f164a7c2a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

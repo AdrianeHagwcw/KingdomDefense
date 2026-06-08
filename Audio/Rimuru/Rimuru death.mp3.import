@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxtuhchmd775"
+path="res://.godot/imported/Rimuru death.mp3-33973f0e0133726724addae6ff8f047a.mp3str"
+
+[deps]
+
+source_file="res://Audio/Rimuru/Rimuru death.mp3"
+dest_files=["res://.godot/imported/Rimuru death.mp3-33973f0e0133726724addae6ff8f047a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://met7ua37oa"
+path="res://.godot/imported/Giant Slime death.mp3-9382569404d2b63cbb043eca46667dca.mp3str"
+
+[deps]
+
+source_file="res://Audio/Giant slime/Giant Slime death.mp3"
+dest_files=["res://.godot/imported/Giant Slime death.mp3-9382569404d2b63cbb043eca46667dca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
