@@ -20,8 +20,8 @@ var enemies_in_range = []
 # Tower stats per level — index 0 = Level 1, index 3 = Level 4 (max)
 const LEVEL_DATA = [
 	{ "name": "Wooden Tower",  "damage": 30,  "attack_speed": 1.2, "range": 1500.0, "upgrade_cost": 500  },
-	{ "name": "Stone Tower",   "damage": 50, "attack_speed": 0.8, "range": 1500.0, "upgrade_cost": 1800 },
-	{ "name": "Iron Tower",    "damage": 70, "attack_speed": 0.6, "range": 1500.0, "upgrade_cost": 2500 },
+	{ "name": "Stone Tower",   "damage": 50, "attack_speed": 0.8, "range": 1500.0, "upgrade_cost": 1500 },
+	{ "name": "Iron Tower",    "damage": 70, "attack_speed": 0.6, "range": 1500.0, "upgrade_cost": 2300 },
 	{ "name": "Cannon Tower",  "damage": 90, "attack_speed": 0.4, "range": 1500.0,"upgrade_cost": 0   },
 ]
 
