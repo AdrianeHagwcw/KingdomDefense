@@ -18,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://cswbdcghoterd" path="res://Sprites-Aranda/LVL 3 TOWER.png" id="12_074og"]
 [ext_resource type="Texture2D" uid="uid://q0ys15iq8akp" path="res://Sprites-Aranda/LVL 4 TOWER.png" id="12_cegan"]
 [ext_resource type="Texture2D" uid="uid://dtltb1nlrjsr1" path="res://Sprites-Aranda/LVL 2 TOWER.png" id="13_cegan"]
+[ext_resource type="AudioStream" uid="uid://bsn5jb2pbxoie" path="res://Audio/UI and others audios/Main menu.mp3" id="19_getpj"]
+[ext_resource type="AudioStream" uid="uid://22tkqcca4wb3" path="res://Audio/UI and others audios/In Game audio.mp3" id="20_ryguw"]
+[ext_resource type="AudioStream" uid="uid://d2k717xfbebtc" path="res://Audio/UI and others audios/Game over.mp3" id="21_d13ii"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4c57u"]
 radius = 16.0
@@ -291,5 +294,14 @@ offset_bottom = 750.0
 text = "Tower HP: 100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="." unique_id=615647265]
+stream = ExtResource("19_getpj")
+
+[node name="InGameMusic" type="AudioStreamPlayer" parent="." unique_id=1748395845]
+stream = ExtResource("20_ryguw")
+
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="." unique_id=178246087]
+stream = ExtResource("21_d13ii")
 
 [connection signal="area_entered" from="StaticTower/AttackRange" to="StaticTower" method="_on_area_2d_area_entered"]

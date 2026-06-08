@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Main menu.mp3-5df8d18de5393c4352292d91e784cc9
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

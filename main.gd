@@ -17,10 +17,15 @@ extends Node2D
 @onready var tower = $StaticTower
 @onready var difficulty_label = $CanvasLayer/Panel/DifficultyLabel
 
-# NEW: Gold and upgrade UI — add these 3 nodes inside CanvasLayer/Panel in the editor
+# Gold and upgrade UI — add these 3 nodes inside CanvasLayer/Panel in the editor
 @onready var gold_label = $CanvasLayer/Panel/GoldLabel
 @onready var upgrade_button = $CanvasLayer/Panel/UpgradeButton
 @onready var tower_level_label = $CanvasLayer/Panel/TowerLevelLabel
+
+# ── AUDIO NODES (ADDED) ────────────────────────────────────────────────────────
+@onready var main_menu_music = $MainMenuMusic
+@onready var in_game_music = $InGameMusic
+@onready var game_over_sfx = $GameOverSFX
 
 @onready var game_nodes: Array[Node] = [
 	$MapBg, $StaticTower, $NorthPath, $WestPath, $EastPath, $SouthPath
@@ -44,7 +49,10 @@ func _ready():
 	set_hud_visible(false)
 	elapsed_time = 0.0
 	update_timer_label()
+	
+	# Open main menu and play menu music (ADDED)
 	main_menu.show_main_menu()
+	play_music(main_menu_music)
 
 func _process(delta):
 	if not game_started:
@@ -71,6 +79,9 @@ func start_game():
 		tower.reset_tower()
 	update_gold_ui()                       # NEW
 	start_spawn_loops_once()
+	
+	# Switch to battle music (ADDED)
+	play_music(in_game_music)
 
 func restart_game():
 	start_game()
@@ -82,6 +93,26 @@ func _on_tower_destroyed():
 	set_hud_visible(false)
 	set_game_world_visible(false)
 	main_menu.show_game_over()
+	
+	# Play game over track (ADDED)
+	play_music(game_over_sfx)
+
+# ── Audio Manager Helper (ADDED) ───────────────────────────────────────────────
+
+func play_music(target_player: AudioStreamPlayer):
+	# Stop background music tracks so they don't overlap
+	if main_menu_music.is_playing(): 
+		main_menu_music.stop()
+	if in_game_music.is_playing(): 
+		in_game_music.stop()
+	
+	# Stop game over theme if we are moving away from it
+	if target_player != game_over_sfx and game_over_sfx.is_playing(): 
+		game_over_sfx.stop()
+		
+	# Play our chosen music node
+	if target_player:
+		target_player.play()
 
 # ── Gold System ────────────────────────────────────────────────────────────────
 
