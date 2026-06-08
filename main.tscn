@@ -73,6 +73,10 @@ bg_color = Color(0.24171454, 0.24560302, 0.2472673, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82xsv"]
 bg_color = Color(0.45434064, 0.037099008, 0.09871092, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="Node2D" type="Node2D" unique_id=568175097]
 position = Vector2(-174, -72)
