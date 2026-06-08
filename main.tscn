@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnit81bg4742r"]
 
-[ext_resource type="Script" uid="uid://rpbo6ncicr5n" path="res://main.gd" id="1_074og"]
+[ext_resource type="Script" path="res://main.gd" id="1_074og"]
 [ext_resource type="Texture2D" uid="uid://2sprvrec5qp0" path="res://Sprites-Aranda/MapBG.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://daf53dlih6u7h" path="res://Sprites-Aranda/LVL 1 TOWER.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://db7h64cuvewmw" path="res://goblin.tscn" id="2_7mycd"]
@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b2nuat8k54pdg" path="res://slime.tscn" id="3_efxa6"]
 [ext_resource type="PackedScene" uid="uid://3kqvr4ga3qfl" path="res://goblin(2).tscn" id="4_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dmm5rilv6c2m6" path="res://projectiles.tscn" id="5_kek77"]
-[ext_resource type="PackedScene" uid="uid://bcmyaios7jojr" path="res://MainMenu.tscn" id="6_7mycd"]
-[ext_resource type="Script" uid="uid://d25ec4xcarm6" path="res://mainmenu.gd" id="7_272bh"]
+[ext_resource type="PackedScene" path="res://MainMenu.tscn" id="6_7mycd"]
+[ext_resource type="Script" path="res://mainmenu.gd" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dn6wv1dw5c7q3" path="res://projectile(2).tscn" id="8_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cjjk16i6w8sas" path="res://projectile(3).tscn" id="10_w48qg"]
 [ext_resource type="Texture2D" uid="uid://bti08xdyr0fch" path="res://Sprites-Aranda/LVL 5 TOWER.png" id="11_yaehf"]
